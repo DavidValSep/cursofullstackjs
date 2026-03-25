@@ -1,0 +1,117 @@
+body {
+    padding:0;
+    margin: 0;
+    background-color: #2f2f2f;
+    color: #333;
+}
+
+header {
+    background-color: rgb(41, 85, 107);
+    color: #fff;
+    padding: 0.8rem;
+    text-align: center;
+}
+
+nav .container {
+    background-color: papayawhip;
+    max-width: 80vw;
+    border: 1px solid #2f2f2f;
+}
+
+.nav-item a {
+    /* text-decoration: none; */
+    font-weight: 500;
+    color: #2f2f2f;
+}
+
+.nav-item a:hover{
+    /* text-decoration: none; */
+    color: red;
+}
+
+#principal {
+    background-color: rgb(252, 225, 181);
+    max-width: 80vw;
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+
+section {
+    margin: 1.4rem;
+    padding: 1.4rem;
+    border: 0.4rem dotted red;
+}
+
+.section-tres {
+    text-align: center;
+}
+
+.email {
+    color: #9c1f1f;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.picture {
+    border: 0.2rem solid blue;
+    border-radius: 1.7rem;
+    width: 50vw;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.picture img {
+    width: 50vw;
+    border-radius: 1.5rem;
+}
+
+footer {
+    color: #fff;
+    background-color: #2f2f2f;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 0.5rem;
+    padding-top: 1.2rem;
+}
+
+.menu {
+    color: #2f2f2f;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0.5rem;
+}
+
+.section-cuatro {
+    text-align: center;
+}
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    text-align: center;
+    font-weight: 700;
+    gap: 1.4rem;
+}
+
+.producto {
+    border: 0.2rem solid brown;
+    border-radius: 1rem;
+    background-color: #fff;
+    padding: 1rem;
+    font-size: 1.2rem;
+}
+
+.producto img {
+    border: 0.4rem solid #fff;
+    border-radius: 1rem
+}
+
+.titulo-secciones {
+    margin: 1.2rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+}

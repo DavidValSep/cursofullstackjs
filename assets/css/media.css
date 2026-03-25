@@ -1,0 +1,19 @@
+@media(min-width: 628px) {
+    .productos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    header {
+        background-color: #211b74;
+    }
+}
+
+@media(min-width: 1160px) {
+    .productos {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    header {
+        background-color: #661313;
+    }
+}
