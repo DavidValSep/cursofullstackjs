@@ -31,3 +31,6 @@ zintronz@Incognito:/media/zintronz/DVS4TB/ZintronZ/Escritorio/Curso JS/FullStack
 [main 1183ebd] chore:primer-ejercicio
  1 file changed, 10 insertions(+)
  create mode 100644 README.md
+zintronz@Incognito:/media/zintronz/DVS4TB/ZintronZ/Escritorio/Curso JS/FullStack$ git status
+En la rama main
+nada para hacer commit, el árbol de trabajo está limpio
