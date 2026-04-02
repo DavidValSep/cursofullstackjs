@@ -68,9 +68,99 @@ button {
   margin: 0 auto;
 }
 
-.bodoni-moda-encabezados {
+/* ========== COMMON TEXT ========== */
+
+/* ========== BUTTONS ========== */
+
+/* ========== FIRST FOLD ========== */
+
+.first-fold {
+  min-height: 100vh;
+}
+
+/* ========== HEADER ========== */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background-color: rgba(245, 243, 239, 0.92);
+  backdrop-filter: blur(0.875rem);
+  -webkit-backdrop-filter: blur(0.875rem);
+  border-bottom: 1px solid rgba(24, 21, 18, 0.06)
+}
+
+.header-inner {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
   font-family: "Bodoni Moda", serif;
+  font-style: italic;
   font-optical-sizing: auto;
   font-weight: 600;
-  font-style: normal;
+  font-size: 2.625rem;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: #181512;
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.logo-p {
+  font-size: 1.26em; /* 1.16em */
+  line-height: 1;
+  margin-right: 0.01em;
+  color: var(--brown);
+}
+
+.main-menu.desktop-only {
+  display: none;
+}
+
+.menu-toggle {
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid rgba(24, 21, 18, 0.08);
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.62);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  transition: 
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.menu-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.82);
+  border-color: rgba(24, 21, 18, 0.14);
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.06);
+}
+
+.menu-toggle span:first-child {
+  transform: translateY(-0.22rem);
+}
+
+.menu-toggle span:last-child {
+  transform: translateY(0.22rem);
+}
+
+.menu-toggle.is-open span:first-child {
+  transform: rotate(45deg);
+}
+
+.menu-toggle.is-open span:last-child {
+  transform: rotate(-45deg);
 }
