@@ -1,6 +1,6 @@
 // Número secreto generado por el computador (1-10)
 const secreto = Math.floor(Math.random() * 10) + 1;
-console.log("Número secreto (para depuración):", secreto);
+console.log("Número secreto (para depuración): ", secreto);
 
 // Función para detectar números repetidos
 function yaUsado(numero, lista) {
