@@ -1,52 +1,51 @@
 // 1. Solicitar cantidad de palabras
-let cantidad = parseInt(prompt("¿Cuántas palabras deseas ingresar?"));
+let cant = parseInt(prompt("¿Cuántas palabras deseas ingresar?"));
 
 // 2. Crear array para almacenar las palabras
-let palabras = [];
+let words = [];
 
 // 3. Solicitar las palabras y almacenarlas
-for (let i = 0; i < cantidad; i++) {
-    let palabra = prompt("Ingresa la palabra " + (i + 1) + ":");
-    palabras.push(palabra);
+for (let i = 0; i < cant; i++) {
+    let word = prompt("Ingresa la palabra " + (i + 1) + ":");
+    words.push(word);
 }
 
 // 4. Función expresiva para contar vocales
-const contarVocales = function(palabra) {
-    let vocales = ['a', 'e', 'i', 'o', 'u'];
-    let contador = 0;
+const countVowels = function(word) {
+    let vowels = ['a', 'e', 'i', 'o', 'u'];
+    let counter = 0;
     
     // Convertir a minúsculas
-    palabra = palabra.toLowerCase();
+    word = word.toLowerCase();
     
     // Recorrer cada carácter
-    for (let i = 0; i < palabra.length; i++) {
+    for (let i = 0; i < word.length; i++) {
         // Verificar si es vocal usando includes()
-        if (vocales.includes(palabra[i])) {
-            contador++;
+        if (vowels.includes(word[i])) {
+            counter++;
         }
     }
     
-    return contador;
+    return counter;
 };
 
 // 5. Unificar todas las palabras en una sola cadena
-let textoCompleto = palabras.join("");
+let completeText = words.join("");
 
 // 6. Contar vocales en el texto completo
-let totalVocales = contarVocales(textoCompleto);
+let totalvowels = countVowels(completeText);
 
 // 7. Mostrar resultados
 
 // En consola
-console.log("Palabras ingresadas:", palabras);
-console.log("Texto completo:", textoCompleto);
-console.log("Total de vocales:", totalVocales);
+console.log("Palabras ingresadas:", words);
+console.log("Texto completo:", completeText);
+console.log("Total de vocales:", totalvowels);
 
 // En alerta
-window.alert("Total de vocales encontradas: " + totalVocales);
+window.alert("Total de vocales encontradas: " + totalvowels);
 
 // En la página HTML
-document.getElementById("resultado").innerHTML = 
-    "<p><strong>Palabras ingresadas:</strong> " + palabras.join(", ") + "</p>" +
-    "<p><strong>Texto completo:</strong> " + textoCompleto + "</p>" +
-    "<p><strong>Total de vocales:</strong> " + totalVocales + "</p>";
+document.getElementById("result").innerHTML = `<p><strong>Palabras ingresadas:</strong> ${words.join(", ")}</p>
+<p><strong>Texto completo:</strong> ${completeText}</p>
+<p><strong>Total de vocales:</strong> ${totalvowels}</p>`;  
