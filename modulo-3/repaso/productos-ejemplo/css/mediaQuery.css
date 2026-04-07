@@ -1,0 +1,22 @@
+/* tablet */
+@media(min-width: 768px) {
+    .productos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    header {
+        background-color: red;
+    }
+}
+
+
+/* desktop */
+@media(min-width:1024px) {
+    .productos-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    header {
+        background-color: bisque;
+    }
+}

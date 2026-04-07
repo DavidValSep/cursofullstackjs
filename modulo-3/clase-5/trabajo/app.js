@@ -38,9 +38,9 @@ let totalvowels = countVowels(completeText);
 // 7. Mostrar resultados
 
 // En consola
-console.log("Palabras ingresadas:", words);
-console.log("Texto completo:", completeText);
-console.log("Total de vocales:", totalvowels);
+console.log("Palabras ingresadas:" + words);
+console.log("Texto completo:" + completeText);
+console.log("Total de vocales:" + totalvowels);
 
 // En alerta
 window.alert("Total de vocales encontradas: " + totalvowels);

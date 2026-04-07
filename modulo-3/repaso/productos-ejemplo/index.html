@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejemplo Store</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/mediaQuery.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header id="header-home">
+      <!-- agregamos nav de bootstrap -->
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container my-4">
+          <a class="navbar-brand" href="#">Ejemplo store</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse text-white" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="productos.html">Productos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contacto.html">Contacto</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="seccion-uno">
+        <h2>¿Quiénes somos?</h2>
+        <p>Somos una tienda dedicada a la felicidad de tus mascotas.</p>
+      </section>
+
+      <section class="seccion-dos">
+        <h2>Nuestra Misión</h2>
+        <p>Ofrecer los mejores productos con entrega inmediata.</p>
+      </section>
+
+      <section class="seccion-tres">
+        <h2>Producto Estrella</h2>
+        <p>Conoce a nuestro modelo del mes:</p>
+        <div class="contenedor-imagen">
+          <img src="./assets/gatito.jpg" alt="Gatito tierno" />
+        </div>
+      </section>
+
+      <!-- agregamos grid -->
+      <section class="seccion-cuatro">
+        <h2>Nuestros Productos</h2>
+        <div class="productos-grid">
+          <div class="producto">
+            <img src="./assets/gatito.jpg" alt="Producto 1" />
+            <p>Producto 1</p>
+          </div>
+          <div class="producto">
+            <img src="./assets/gatito.jpg" alt="Producto 2" />
+            <p>Producto 2</p>
+          </div>
+          <div class="producto">
+            <img src="./assets/gatito.jpg" alt="Producto 3" />
+            <p>Producto 3</p>
+          </div>
+          <div class="producto">
+            <img src="./assets/gatito.jpg" alt="Producto 4" />
+            <p>Producto 4</p>
+          </div>
+          <div class="producto">
+            <img src="./assets/gatito.jpg" alt="Producto 5" />
+            <p>Producto 5</p>
+          </div>
+          <div class="producto">
+            <img src="./assets/gatito.jpg" alt="Producto 6" />
+            <p>Producto 6</p>
+          </div>
+          <div class="producto">
+            <img src="./assets/gatito.jpg" alt="Producto 7" />
+            <p>Producto 7</p>
+          </div>
+          <div class="producto">
+            <img src="./assets/gatito.jpg" alt="Producto 8" />
+            <p>Producto 8</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Ejemplo Store &copy; 2026</p>
+    </footer>
+  </body>
+</html>
