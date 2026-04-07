@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronómetro - 31 Minutos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.1s;
+        }
+
+        body.alarm-active {
+            animation: blink 0.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 49% {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            }
+            50%, 100% {
+                background: #FF0000;
+                box-shadow: 0 0 40px rgba(255, 0, 0, 0.8);
+            }
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            animation: none;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+
+        .cronometro-display {
+            background: #f5f5f5;
+            border: 3px solid #667eea;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .tiempo {
+            font-size: 80px;
+            font-weight: bold;
+            color: #333;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 5px;
+        }
+
+        .tiempo.alarma {
+            color: #FF0000;
+            animation: pulse 0.3s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                text-shadow: none;
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+            }
+        }
+
+        .info {
+            color: #666;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+
+        .controles {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-start {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .btn-start:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-start:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-reset {
+            background: #f44336;
+            color: white;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .btn-reset:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(244, 67, 54, 0.4);
+        }
+
+        .btn-pause {
+            background: #FF9800;
+            color: white;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .btn-pause:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 152, 0, 0.4);
+        }
+
+        .btn-pause:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .estado {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .estado.activo {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .estado.pausa {
+            color: #FF9800;
+            font-weight: bold;
+        }
+
+        .estado.alarma {
+            color: #f44336;
+            font-weight: bold;
+            animation: pulse-texto 0.5s infinite;
+        }
+
+        @keyframes pulse-texto {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        .progress-fill.alarma {
+            background: linear-gradient(90deg, #f44336 0%, #ff0000 100%);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            .tiempo {
+                font-size: 60px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            button {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⏱️ Cronómetro</h1>
+        
+        <div class="cronometro-display">
+            <div class="tiempo" id="tiempo">31:00</div>
+            <div class="info">Tiempo hasta alarma</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+        </div>
+
+        <div class="estado" id="estado">Listo para iniciar</div>
+
+        <div class="controles">
+            <button class="btn-start" id="btnStart" onclick="iniciarCronometro()">Iniciar</button>
+            <button class="btn-pause" id="btnPause" onclick="pausarCronometro()" disabled>Pausar</button>
+            <button class="btn-reset" id="btnReset" onclick="resetearCronometro()">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        // Configuración
+        const TIEMPO_TOTAL = 31 * 60; // 31 minutos en segundos
+        
+        // Variables de estado
+        let tiempoRestante = TIEMPO_TOTAL;
+        let enProgreso = false;
+        let enAlarm = false;
+        let intervalo = null;
+
+        // Elementos del DOM
+        const tiempoElement = document.getElementById('tiempo');
+        const btnStart = document.getElementById('btnStart');
+        const btnPause = document.getElementById('btnPause');
+        const btnReset = document.getElementById('btnReset');
+        const estado = document.getElementById('estado');
+        const progressBar = document.getElementById('progressBar');
+
+        // Actualizar pantalla
+        function actualizarPantalla() {
+            const minutos = Math.floor(tiempoRestante / 60);
+            const segundos = tiempoRestante % 60;
+            
+            tiempoElement.textContent = 
+                `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
+            
+            // Actualizar barra de progreso
+            const porcentaje = ((TIEMPO_TOTAL - tiempoRestante) / TIEMPO_TOTAL) * 100;
+            progressBar.style.width = porcentaje + '%';
+        }
+
+        // Iniciar cronómetro
+        function iniciarCronometro() {
+            if (enProgreso) return;
+            
+            enProgreso = true;
+            btnStart.disabled = true;
+            btnPause.disabled = false;
+            estado.textContent = '⏳ Cronómetro en progreso...';
+            estado.className = 'estado activo';
+
+            intervalo = setInterval(() => {
+                tiempoRestante--;
+                actualizarPantalla();
+
+                // Cuando llega a 0, activar alarma
+                if (tiempoRestante <= 0) {
+                    activarAlarma();
+                }
+            }, 1000);
+        }
+
+        // Pausar cronómetro
+        function pausarCronometro() {
+            if (!enProgreso) return;
+            
+            enProgreso = false;
+            clearInterval(intervalo);
+            
+            btnStart.disabled = false;
+            btnPause.disabled = true;
+            estado.textContent = '⏸️ Pausado';
+            estado.className = 'estado pausa';
+        }
+
+        // Resetear cronómetro
+        function resetearCronometro() {
+            // Detener progreso
+            enProgreso = false;
+            clearInterval(intervalo);
+            
+            // Limpiar alarma
+            enAlarm = false;
+            document.body.classList.remove('alarm-active');
+            tiempoElement.classList.remove('alarma');
+            progressBar.classList.remove('alarma');
+            estado.classList.remove('alarma');
+            
+            // Detener sonido
+            detenerSonido();
+            
+            // Resetear valores
+            tiempoRestante = TIEMPO_TOTAL;
+            actualizarPantalla();
+            
+            // Actualizar botones
+            btnStart.disabled = false;
+            btnPause.disabled = true;
+            estado.textContent = 'Listo para iniciar';
+            estado.className = 'estado';
+        }
+
+        // Activar alarma
+        function activarAlarma() {
+            clearInterval(intervalo);
+            enAlarm = true;
+            enProgreso = false;
+            
+            // Aplicar estilos de alarma
+            document.body.classList.add('alarm-active');
+            tiempoElement.classList.add('alarma');
+            progressBar.classList.add('alarma');
+            estado.classList.add('alarma');
+            estado.textContent = '🚨 ¡ALARMA ACTIVADA! - Click en Reset para detener';
+            
+            // Reproducir sonido
+            reproducirSonido();
+            
+            // Actualizar botones
+            btnStart.disabled = true;
+            btnPause.disabled = true;
+        }
+
+        // Generar sonido de alarma con Web Audio API
+        function reproducirSonido() {
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                
+                // Crear oscilador
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                // Configurar frecuencia de alarma (1000 Hz)
+                oscillator.frequency.setValueAtTime(1000, audioContext.currentTime);
+                
+                // Volumen
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                
+                // Duración (sonido continuo mientras esté en alarma)
+                oscillator.start(audioContext.currentTime);
+                
+                // Guardar referencias para poder detener después
+                window.alarmaOscillator = oscillator;
+                window.alarmaGainNode = gainNode;
+                window.alarmaAudioContext = audioContext;
+                
+            } catch (e) {
+                console.log('Web Audio API no disponible, usando método alternativo');
+                // Alternativa: usar un beep simple
+                reproducirBeeple();
+            }
+        }
+
+        // Método alternativo: beep simple
+        function reproducirBeeple() {
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                
+                for (let i = 0; i < 3; i++) {
+                    const oscillator = audioContext.createOscillator();
+                    const gainNode = audioContext.createGain();
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioContext.destination);
+                    
+                    oscillator.frequency.value = 800 + (i * 200);
+                    
+                    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime + (i * 0.3));
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + (i * 0.3) + 0.2);
+                    
+                    oscillator.start(audioContext.currentTime + (i * 0.3));
+                    oscillator.stop(audioContext.currentTime + (i * 0.3) + 0.2);
+                }
+            } catch (e) {
+                console.log('No se pudo reproducir sonido');
+            }
+        }
+
+        // Detener sonido
+        function detenerSonido() {
+            try {
+                if (window.alarmaOscillator) {
+                    window.alarmaOscillator.stop();
+                    window.alarmaOscillator = null;
+                }
+                if (window.alarmaGainNode) {
+                    window.alarmaGainNode.disconnect();
+                    window.alarmaGainNode = null;
+                }
+                if (window.alarmaAudioContext) {
+                    window.alarmaAudioContext.close();
+                    window.alarmaAudioContext = null;
+                }
+            } catch (e) {
+                console.log('Error deteniendo sonido');
+            }
+        }
+
+        // Inicializar
+        actualizarPantalla();
+    </script>
+</body>
+</html>
