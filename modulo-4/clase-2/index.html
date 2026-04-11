@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Formulario con LocalStorage</h1>
+    
+    <input type="text" id="nombre" placeholder="Nombre" required>
+    <input type="number" id="edad" placeholder="Edad" required>
+    
+    <button onclick="guardarDatos()">Guardar</button>
+    <button onclick="mostrarDatos()">Mostrar</button>
+    <button onclick="eliminarDatos()">Borrar</button>
+
+    <div id="datosGuardados"></div>
+
+    <script src="./localstorage.js"></script>
+</body>
+</html>
