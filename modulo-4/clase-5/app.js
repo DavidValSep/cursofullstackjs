@@ -1,8 +1,46 @@
-const API_URL = "https://rickandmortyapi.com/api/character/1,2,3,4,5,6,7,8,9,10";
+// const API_URL = "https://api.boostr.cl/feriados/en.json";
+// const estadoEl = document.getElementById("estado");
+// const listaEl = document.getElementById("lista");
+
+// async function mostrarFeriados() {
+//     try {
+//         //1. hacer la petición a la API
+//         const respuesta = await fetch(API_URL);
+//         estadoEl.textContent = "Cargando feriados...";
+//         //2. Verificar que la respusta sea correcta
+//         if (!respuesta.ok) {
+//             throw new Error(`HTTP error! status: ${respuesta.status}`);
+//         }
+//         console.log("Respuesta de la API:", respuesta);
+//         //3. Convertir la respuesta a JSON
+//         const data = await respuesta.json();
+//         //4. Puede venir como un array
+//         console.log(data);
+//         const feriados = Array.isArray(data) ? data : data.feriados || [];
+//         //5. Mostrar la cantridad de feriados
+//         estadoEl.textContent = `Cantidad de feriados: ${feriados.length}`;
+//         //6. Mostrar la lista de feriados
+//         feriados.forEach(feriado => {
+//             const fecha = feriado.date || feriado.fecha || "—";
+//             const titulo = feriado.title || feriado.name || feriado.nombre || "—";
+//             const tipo = feriado.type || "—";
+   
+//             const li = document.createElement("li");
+//             li.textContent = `${fecha} — ${titulo} - ${tipo}`;
+//             listaEl.appendChild(li);
+//         });
+//     } catch (error) {
+//         console.error("Error al cargar los feriados:", error);
+//         estado.textContent = "Error al cargar los feriados.";
+//     }
+// }
+
+// mostrarFeriados();
+const API_URL = "https://api.boostr.cl/feriados/en.json";
 const estadoEl = document.getElementById("estado");
 const listaEl = document.getElementById("lista");
 
-async function cargarpersonajes() {
+async function cargarFeriados() {
   try {
     // 1. Hacer la petición
     const respuesta = await fetch(API_URL);
@@ -16,26 +54,26 @@ async function cargarpersonajes() {
     const datos = await respuesta.json();
 
     // 4. Puede venir como array directo o dentro de "data"
-    const personajes = Array.isArray(datos) ? datos : datos.data || [];
+    const feriados = Array.isArray(datos) ? datos : datos.data || [];
 
     // 5. Mostrar cuántos se encontraron
-    estadoEl.textContent = `Se encontraron ${personajes.length} personajes`;
+    estadoEl.textContent = `Se encontraron ${feriados.length} feriados`;
 
-    // 6. Mostrar cada personaje en la lista
-    personajes.forEach((personaje) => {
-      const fecha = personaje.date || personaje.fecha || "—";
-      const titulo = personaje.title || personaje.name || personaje.nombre || "—";
-      const tipo = personaje.type || "—";
+    // 6. Mostrar cada feriado en la lista
+    feriados.forEach((feriado) => {
+      const fecha = feriado.date || feriado.fecha || "—";
+      const titulo = feriado.title || feriado.name || feriado.nombre || "—";
+      const tipo = feriado.type || "—";
 
       const li = document.createElement("li");
-      li.innerHTML = `<img src="${personaje.image}" class="img-profile" alt="${titulo}"> ${personaje.id} — ${titulo} - ${tipo}`;
+      li.textContent = `${fecha} — ${titulo} - ${tipo}`;
       listaEl.appendChild(li);
     });
   } catch (error) {
-    console.error("Error al cargar personajes:", error);
-    estadoEl.textContent = "No se pudieron cargar los personajes 😢";
+    console.error("Error al cargar feriados:", error);
+    estadoEl.textContent = "No se pudieron cargar los feriados 😢";
   }
 }
 
 // Llamar a la función al iniciar
-cargarpersonajes();
+cargarFeriados();
