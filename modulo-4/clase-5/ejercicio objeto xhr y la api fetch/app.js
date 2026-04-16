@@ -41,7 +41,7 @@ async function cargarpersonajes() {
         default:
           especies = species;
       }
-      li.innerHTML = `<img src="${image}" class="img-profile" alt="${name}"> 
+      li.innerHTML = `<img src="${image}" class="img-profile" alt="${name}">
       ${id} - 
       Nombre: ${name} - 
       Especie: ${especies}`;
@@ -60,13 +60,25 @@ async function cargarpersonajes() {
       listaEl.appendChild(li);
     });
 
-    document.getElementById("Alien").innerHTML = `
+    document.getElementById("alien").innerHTML = `
       <h2>${personajesAlien[0].name}</h2>
-      <img src="${personajesAlien[0].image}" class="data-img" alt="${personajesAlien[0].name}">
-      <p>Especie: ${personajesAlien[0].species}</p>
-      <p>Género: ${personajesAlien[0].gender}</p>
-      <p>Origen: ${personajesAlien[0].origin.name}</p>
-      <p>Ubicación: ${personajesAlien[0].location.name}</p>`;
+      <div class="ficha">
+        <div><img src="${personajesAlien[0].image}" class="data-img" alt="${personajesAlien[0].name}"></div>
+        <div>
+          <p>
+            Especie: ${personajesAlien[0].species}
+          </p>
+          <p>
+            Género: ${personajesAlien[0].gender}
+          </p>
+          <p>
+            Origen: ${personajesAlien[0].origin.name}
+          </p>
+          <p>
+            Ubicación: ${personajesAlien[0].location.name}
+          </p>
+        </div>
+      </div>`;
 
     console.log(personajesAlien[0].id);
     
