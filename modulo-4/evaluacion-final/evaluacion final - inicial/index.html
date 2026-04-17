@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación final módulo 4</title>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    
+    <h1>Evaluacion final modulo 4</h1>
+
+    <button id="btn-list-users" onclick="listAllUserNames()">Listar nombres de usuarios</button>
+    <button id="btn-basic-info" onclick="showBasicInfoByPrompt()">Info basica por nombre</button>
+    <button id="btn-address" onclick="showAddressByPrompt()">Direccion por nombre</button>
+    <button id="btn-advanced-info" onclick="showAdvancedInfoByPrompt()">Info avanzada por nombre</button>
+    <button id="btn-companies" onclick="listCompaniesWithCatchphrase()">Listar companias y catchphrase</button>
+    <button id="btn-sorted-users" onclick="listUserNamesAlphabetically()">Listar nombres ordenados</button>
+
+    <section id="output" aria-live="polite">
+        <h2>Resultado</h2>
+        <p>Haz clic en un boton para mostrar informacion en pantalla.</p>
+        <ol id="output-list"></ol>
+    </section>
+
+
+</body>
+</html>

@@ -44,3 +44,4 @@ function calcularYAvisarDependiendo(numero, callback) {
 calcularYAvisarDependiendo(10, (resultado) => {
     console.log(`La sumatoria de los números impares es: ${resultado}.`);
 });
+}
