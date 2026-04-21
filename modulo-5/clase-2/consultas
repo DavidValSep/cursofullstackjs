@@ -1,0 +1,51 @@
+--consulta
+SELECT * FROM public.clientes
+
+--consulta
+SELECT * FROM public.clientes WHERE edad > 40
+
+--funciones
+--contar cantidad de registros
+SELECT COUNT(*) FROM clientes
+
+--sumar
+SELECT SUM(edad) FROM clientes
+
+--obtener promedio de columna numerica
+SELECT AVG(edad) FROM clientes
+
+--obtener valor minimo
+SELECT MIN(edad) FROM clientes
+
+--obtener valor maximo
+SELECT MAX(edad) FROM clientes
+
+--convertir columna a mayusculas
+SELECT UPPER(nombre) FROM clientes
+
+--convertir columna a minusculas
+SELECT LOWER(nombre) FROM clientes
+
+--obtener fecha y hora actual
+SELECT nombre, now() FROM clientes
+
+--concatenar dos o mas cadenas de caracteres
+SELECT CONCAT(rut, ' - ', nombre) FROM clientes 
+
+--crear alias o reemplazar temporalmente nombre de columna
+SELECT nombre AS names FROM clientes
+
+--operadores WHERE
+SELECT nombre, count(edad) FROM clientes WHERE edad > 25 GROUP BY nombre
+
+--filtrar registros de acuerdo al resultado de aalguna funcion de agregación
+SELECT nombre, count(edad) FROM clientes WHERE edad > 25 GROUP BY nombre HAVING COUNT(*) > 1
+
+--INNER JOIN
+SELECT cli.nombre, com.monto, com.fecha FROM public.clientes cli INNER JOIN public.compras com ON cli.rut = com.rut_cliente
+
+--LEFT JOIN
+SELECT Cli.nombre, com.monto FROM clientes cli LEFT JOIN compras com ON cli.rut = com.rut_cliente
+
+--consulta Anidada
+SELECT * FROM clientes WHERE rut IN(SELECT rut_cliente FROM compras WHERE monto > 20000)

@@ -1,0 +1,32 @@
+--SERIAL: Es perfecto para id_compra porque PostgreSQL le asignará un número automático (1, 2, 3...) a cada compra nueva.
+
+--rut_cliente: Lo definimos como CHARACTER VARYING(10) para que sea idéntico al "Rut" de tu tabla clientes. Si los tipos fueran distintos, los JOIN darían error.
+
+--FOREIGN KEY: Esta "llave foránea" es como un seguro de integridad; impide que registres una compra para un RUT que no existe en tu tabla de clientes.
+CREATE TABLE public.compras (
+    id_compra SERIAL PRIMARY KEY,
+    monto INTEGER NOT NULL,
+    fecha DATE DEFAULT CURRENT_DATE,
+    rut_cliente CHARACTER VARYING(10),
+    
+    -- Esta línea es opcional pero recomendada: vincula ambas tablas
+    CONSTRAINT fk_cliente_compras
+      FOREIGN KEY (rut_cliente) 
+      REFERENCES public.clientes(rut)
+);
+
+
+SELECT * FROM public.compras
+
+--pob tabla compras
+
+INSERT INTO public.compras (monto, rut_cliente) 
+VALUES (25000, '13133133-2');
+
+
+INSERT INTO public.compras (monto, rut_cliente) 
+VALUES (3500, '13133133-2');
+
+
+INSERT INTO public.compras (monto, rut_cliente) 
+VALUES (12000, '12345678-9');

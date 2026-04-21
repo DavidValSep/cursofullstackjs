@@ -1,0 +1,45 @@
+--insert datos
+INSERT INTO public.clientes(
+	rut, nombre, edad)
+	VALUES ('13564632-1', 'Pepa', '48');
+
+--mostrar tabla
+SELECT * FROM public."clientes";
+
+--R1
+SELECT * FROM clientes
+WHERE rut = '13133133-3';
+
+--R2
+SELECT * FROM clientes
+WHERE edad > 25;
+
+--R3
+SELECT * FROM clientes
+WHERE nombre NOT ILIKE 'mario';
+
+--R4
+SELECT * FROM clientes
+WHERE rut LIKE '13%';
+
+--R5
+SELECT * FROM clientes
+WHERE nombre ILIKE '%a';
+
+--R6
+
+SELECT * FROM clientes
+WHERE nombre ILIKE 'P%' AND edad > 34;
+
+--R7
+SELECT * FROM clientes
+WHERE rut LIKE '1%'
+  AND nombre NOT ILIKE 'M%'
+  AND edad < 40
+  ORDER BY nombre;
+
+--R8
+SELECT * FROM clientes
+WHERE (rut LIKE '13%' OR rut LIKE '%1')
+  AND nombre IN ('Diego','Mario','Pato','Pepa')
+  AND edad BETWEEN 20 AND 80;

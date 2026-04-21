@@ -30,17 +30,21 @@ calcularYAvisarDespues(10, (resultado) => {
 
 //Ejercicio 3
 function calcularYAvisarDependiendo(numero, callback) {
+    let sumatoriaParcial = 0;
     let sumatoriaSucesiva = 0;
     let n = parseInt(numero);//ingrese un numero
     for (let i = 1; i <= n; i++) {
-        sumatoriaSucesiva += i;
+        sumatoriaParcial += i;
+        sumatoriaSucesiva += sumatoriaParcial;
     }
-    if (sumatoriaSucesiva <= 1000) {
     console.log("Calculando la sumatoria de los números impares...");
     setTimeout(() => {
-        callback(sumatoriaSucesiva);
+        if (sumatoriaSucesiva <= 5000) {
+            callback(sumatoriaSucesiva);
+        } else {
+            console.log(`La sumatoria sucesiva es: ${sumatoriaSucesiva}, este resultado se obtuvo en 5 segundos.`);
+        }
     }, 0);
-}
 calcularYAvisarDependiendo(10, (resultado) => {
     console.log(`La sumatoria de los números impares es: ${resultado}.`);
 });
