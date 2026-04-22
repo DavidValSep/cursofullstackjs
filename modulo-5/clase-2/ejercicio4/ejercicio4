@@ -1,0 +1,78 @@
+DROP TABLE IF EXISTS serie_netflix;
+CREATE TABLE serie_netflix
+(
+    nombre character varying NOT NULL,
+    temporadas integer,
+    genero character varying(50),
+    anio_estreno integer,
+    PRIMARY KEY (nombre)
+);
+
+insert into serie_netflix (nombre, temporadas, genero, anio_estreno) values ('Black Mirror', 5, 'Ciencia ficción', 2011);
+
+select * from serie_netflix;
+
+--1. insertar 20 series adicionales.
+INSERT INTO serie_netflix (nombre, temporadas, genero, anio_estreno) VALUES 
+('Stranger Things', 4, 'Ciencia ficción', 2016),
+('The Crown', 6, 'Drama histórico', 2016),
+('Dark', 3, 'Suspenso', 2017),
+('Ozark', 4, 'Drama criminal', 2017),
+('The Witcher', 3, 'Fantasía', 2019),
+('Mindhunter', 2, 'Thriller psicológico', 2017),
+('BoJack Horseman', 6, 'Animación', 2014),
+('Better Call Saul', 6, 'Drama', 2015),
+('Peaky Blinders', 6, 'Drama criminal', 2013),
+('Cobra Kai', 6, 'Acción', 2018),
+('La casa de papel', 5, 'Suspenso', 2017),
+('The Last of Us', 1, 'Post-apocalíptico', 2023),
+('The Boys', 4, 'Superhéroes', 2019),
+('Succession', 4, 'Sátira', 2018),
+('The Mandalorian', 3, 'Aventura espacial', 2019),
+('Ted Lasso', 3, 'Comedia', 2020),
+('Severance', 1, 'Ciencia ficción', 2022),
+('The Bear', 2, 'Comedia dramática', 2022),
+('Squid Game', 1, 'Drama', 2021),
+('Arcane', 1, 'Animación', 2021);
+
+--2. Listar todas las series con más de 3 temporadas ordenadas por año de estreno descendente.
+SELECT * FROM serie_netflix WHERE temporadas > 3 ORDER BY anio_estreno DESC;
+
+--3. Listar el año de la serie más antigua
+SELECT MIN(anio_estreno) FROM serie_netflix;
+
+--4. Listar el año de la serie más nueva
+SELECT MAX(anio_estreno) FROM serie_netflix;
+
+--5. Mostrar el promedio de año de estreno de las series
+SELECT AVG(anio_estreno)AS Promedio_Año_Estreno FROM serie_netflix;
+
+--6. Listar el promedio de temporadas de todas las series
+SELECT AVG(temporadas) AS Promedio_Temporadas FROM serie_netflix;
+
+--7. Listar las series que tengan 1, 2, 4, 5 o 7 temporadas
+SELECT * FROM serie_netflix WHERE temporadas = 1 OR temporadas = 2 OR temporadas = 4 OR temporadas = 5 OR temporadas = 7
+--Alternativa optimizada
+SELECT * FROM serie_netflix WHERE temporadas IN (1, 2, 4, 5, 7);
+
+--8. Listar las series que NO tengan 1, 2, 4, 5 o 7 temporadas
+SELECT * FROM serie_netflix WHERE temporadas NOT IN (1, 2, 4, 5, 7);
+
+--9. Borrar todas las series con año de estreno superior a 2010
+BEGIN;
+DELETE FROM serie_netflix WHERE anio_estreno > 2010;
+
+--10. Reinsertar los datos recién borrados
+ROLLBACK;
+
+--11. Agregar la serie Doctor House, 8, ‘Drama Médico’, 2004 (si ya la tiene, agregue otra)
+INSERT INTO serie_netflix (nombre, temporadas, genero, anio_estreno) VALUES ('Doctor House', 8, 'Drama Médico', 2004);
+
+--12. Listar todas las series estrenadas entre 2005 y 2020
+SELECT * FROM serie_netflix WHERE anio_estreno BETWEEN 2005 AND 2020;
+
+--13. Listar todas aquellas series con nombre comenzado en B o terminado en e
+SELECT * FROM serie_netflix WHERE nombre LIKE 'B%' OR nombre LIKE '%e';
+
+--14. Listar aquellas series cuyo año de entreno más la cantidad de temporadas excede 2010
+SELECT *, (anio_estreno + temporadas) AS estreno_temporadas FROM serie_netflix WHERE (anio_estreno + temporadas) > 2010;
