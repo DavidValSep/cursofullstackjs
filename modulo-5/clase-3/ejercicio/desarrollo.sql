@@ -1,4 +1,4 @@
--- Tabla 1: Clientes
+--1 Tabla 1: Clientes
 CREATE TABLE Clientes (
 id_cliente INT PRIMARY KEY,
 nombre VARCHAR(100) NOT NULL,
@@ -29,7 +29,7 @@ ON UPDATE CASCADE -- Si se actualiza el id_cliente, se
 CREATE SEQUENCE seq_cliente_id START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE seq_cuenta_id START WITH 1 INCREMENT BY 1;
 
--- Insertar Clientes (Usando sec_cliente_id.nextval si la base de
+--2 Insertar Clientes (Usando sec_cliente_id.nextval si la base de
 -- datos lo permite, sino, se usa un número)
 INSERT INTO Clientes (id_cliente, nombre, edad) VALUES (1, 'Ana
 García', 78);
