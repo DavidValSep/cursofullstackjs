@@ -112,7 +112,7 @@ ALTER TABLE facturas
 ADD COLUMN fecha DATE DEFAULT CURRENT_DATE;
 
 -- 8. Actualizar el nuevo campo fecha con diferentes datos para cada
-factura
+-- factura
 UPDATE facturas SET fecha = '2026-04-20' WHERE id = 1;
 UPDATE facturas SET fecha = '2026-04-21' WHERE id = 2;
 UPDATE facturas SET fecha = '2026-04-22' WHERE id = 3;
