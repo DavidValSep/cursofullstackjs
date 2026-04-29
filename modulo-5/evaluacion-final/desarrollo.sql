@@ -56,6 +56,9 @@ insert into reparto_papi_ricky (nombre, capitulos, protagonico, sueldo) values (
 insert into reparto_papi_ricky (nombre, capitulos, protagonico, sueldo) values ('José Tomás Guzmán', 135, true, 25);
 insert into reparto_papi_ricky (nombre, capitulos, protagonico, sueldo) values ('Manuel Aguirre', 135, true, 30);
 
+--1-1. Crear una consulta para obtener todos los actores que participaron en ambas teleseries, el
+--sueldo que obtuvieron en cada una y la suma de ambos sueldos, todo esto ordenado por el
+--nombre del actor.
 SELECT 
     Sol.nombre, 
     Sol.sueldo AS sueldo_soltera, 
@@ -65,6 +68,8 @@ FROM reparto_soltera_otra_vez Sol
 JOIN reparto_papi_ricky Pap ON Sol.nombre = Pap.nombre
 ORDER BY Sol.nombre ASC;
 
+--1-2. Crear  una  consulta  para  obtener  todos  los  actores  que  participaron  exclusivamente  en
+--soltera otra vez, con un sueldo mayor a 90.
 SELECT 
     Sol.nombre, 
     Sol.sueldo, 
@@ -74,6 +79,8 @@ LEFT JOIN reparto_papi_ricky Pap ON Sol.nombre = Pap.nombre
 WHERE Pap.nombre IS NULL 
   AND Sol.sueldo > 90;
 
+--1-3. Crear una consulta para obtener solo los actores con sueldo inferior a 85 que actuaron en
+--cualquiera de las dos teleseries, pero no en las dos.
 SELECT 
 --COALESCE para unificar datos de dos tablas quitando los que encuentre null en una pero esten en la otra y los ponemos en un alias
     COALESCE(Sol.nombre, Pap.nombre) AS nombre_actores,
@@ -83,6 +90,9 @@ FULL OUTER JOIN reparto_papi_ricky Pap ON Sol.nombre = Pap.nombre
 WHERE (Sol.nombre IS NULL OR Pap.nombre IS NULL)
   AND (Sol.sueldo < 85 OR Pap.sueldo < 85);
 
+--2-1. Crear los scripts  de creación de  tablas, campos y llaves  necesarias. Para poblar las tablas,
+--incluya inserts de los mismos datos del ejercicio anterior adaptados a este nuevo sistema
+--mejorado.
 CREATE TABLE actores (
     id_actor SERIAL PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL UNIQUE
@@ -121,6 +131,8 @@ INSERT INTO reparto_actores (id_actor, id_teleserie, protagonico, sueldo, detall
 (7, 2, TRUE, 95, 135),  
 (8, 2, FALSE, 40, 135);
 
+--2-3. Crear  una  consulta  que  muestre  todas  las  teleseries  y  todos  los  actores  de  reparto
+--asociados. No incluya los actores de rol secundario.
 SELECT 
     t.titulo AS teleserie,
     a.nombre AS actor
@@ -130,7 +142,7 @@ JOIN actores a ON ra.id_actor = a.id_actor
 WHERE ra.protagonico = TRUE
 ORDER BY t.titulo;
 
------- CORRECCIÓN ------
+------ CORRECCIÓN ------    
 -- REGULAR CONTENIDOS PARA QUE LA CONSULTA ANTERIOR DE RESULTADOS
 -- Primero aseguramos que las teleseries existan
 INSERT INTO teleseries (titulo) 
