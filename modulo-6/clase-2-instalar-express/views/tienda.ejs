@@ -10,22 +10,24 @@
     <header>
         <nav>
             <ul>
-                <li><a href="/">Home</a></li>
+                <li class=""><a href="/">Home</a></li>
                 <li><a href="/admin/agregar-producto">Agregar Producto</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <h1>Mis Productos</h1>
-        <a href="/?ordenar=nombre" class="btn">Ordenar por Nombre</a>
-        <a href="/?ordenar=precio" class="btn">Ordenar por Precio</a>
+        <div class="btn-group">
+            <a href="/?ordenar=nombre" class="btn">Ordenar por Nombre</a>
+            <a href="/?ordenar=precio" class="btn">Ordenar por Precio</a>
+        </div>
         <% if (productos.length > 0) { %>
-            <ul>
+            <ul class="products">
                 <% productos.forEach(producto => { %>
-                    <li>
-                        <%= producto.titulo %><br />
-                        Precio: $<%= producto.precio %><br />
-                        <img src="<%= producto.imagen %>" alt="<%= producto.titulo %>" style="width: 100px; height: 100px;">
+                    <li class="product-item">
+                        <img src="<%= producto.imagen %>" alt="<%= producto.titulo %>" class="product-image">
+                        <h2 class="product-title"><%= producto.titulo %></h2>
+                        Precio: $<%= producto.precio %>
                     </li>
                 <% }) %>
             </ul>

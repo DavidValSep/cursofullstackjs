@@ -22,9 +22,9 @@ app.use('/admin', adminData.router);
 app.use(tiendaRoutes);
 
 app.use((req, res, next) => {
-    res.status(404).sendFile(path.join(rootDir, "views", "400.html"));
+    res.status(400).sendFile(path.join(rootDir, "views", "400.html"));
     res.status(404).sendFile(path.join(rootDir, "views", "404.html"));
-    res.status(404).sendFile(path.join(rootDir, "views", "405.html"));
+    res.status(405).sendFile(path.join(rootDir, "views", "405.html"));
 });
 
 app.listen(3000, () => {
