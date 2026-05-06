@@ -4,35 +4,40 @@ const express = require("express");
 
 const router = express.Router();
 const rootDir = require("../utils/path");
-const adminData = require("./admin");
 
-const productos = [];
-const p = path.join(rootDir, 'data', 'productos.txt');
+const p = path.join(rootDir, 'data', 'productos.json');
 router.get("/agregar-producto", (req, res, next) => {
   res.sendFile(path.join(rootDir, "views", "agregar-producto.html"));
 });
 
 router.post("/agregar-producto", (req, res, next) => {
-//   productos.push({
-//     titulo: req.body.nombre,
-//     precio: req.body.precio,
-//     imagen: req.body.imagen,
-//    });
-//   res.redirect("/");
-    const nuevoProducto = `${req.body.nombre}, ${req.body.precio}, ${req.body.imagen}\n`;
+    fs.readFile(p, 'utf-8', (err, fileContent) => {
+        let productos = [];
 
-    // Escritura NON-BLOCKING
-    fs.appendFile(p, nuevoProducto, (err) => {
-        if (err) {
-            console.log("Error al guardar el producto:", err);
-            // Opcional: manejar el error enviando una respuesta al usuario
-            return res.status(500).send("Error al guardar en el servidor.");
+        if (!err && fileContent && fileContent.trim()) {
+            try {
+                productos = JSON.parse(fileContent);
+            } catch (parseError) {
+                console.error('Error parseando productos.json:', parseError);
+                productos = [];
+            }
         }
-        
-        // Solo cuando la escritura termina con éxito, redirigimos
-        res.redirect("/");
+
+        productos.push({
+            nombre: req.body.nombre,
+            precio: Number(req.body.precio) || 0,
+            imagen: req.body.imagen
+        });
+
+        fs.writeFile(p, JSON.stringify(productos, null, 2), 'utf-8', (writeErr) => {
+            if (writeErr) {
+                console.log("Error al guardar el producto en JSON:", writeErr);
+                return res.status(500).send("Error al guardar en el servidor.");
+            }
+
+            res.redirect("/");
+        });
     });
 });
 
 exports.router = router;
-exports.productos = productos;

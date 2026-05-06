@@ -1,7 +1,7 @@
 const path = require("path");
 const express = require("express");
 const fs = require('fs');
-const p = path.join(__dirname, '../', 'data', 'productos.txt');
+const p = path.join(__dirname, '../', 'data', 'productos.json');
 //agregamos el router de express para manejar las rutas de la tienda
 const router = express.Router();
 const rootDir = require("../utils/path");
@@ -9,28 +9,25 @@ const adminData = require("./admin");
 
 
 router.get("/", (req, res, next) => {
-// Lectura NON-BLOCKING
     fs.readFile(p, 'utf-8', (err, fileContent) => {
         let productos = [];
 
         if (!err && fileContent) {
-            // Procesamos cada línea: "nombre, precio"
-            productos = fileContent.split('\n')
-                .filter(linea => linea.trim() !== "") // Evita líneas vacías
-                .map(linea => {
-                    const [nombre, precio, imagen] = linea.split(',');
-                    return {
-                        titulo: nombre.trim(),
-                        precio: parseFloat(precio.trim()),
-                        imagen: imagen
-                    };
-                });
+            try {
+                const data = JSON.parse(fileContent);
+                productos = data.map(producto => ({
+                    nombre: producto.nombre || '',
+                    precio: Number(producto.precio) || 0,
+                    imagen: producto.imagen || ''
+                }));
+            } catch (parseError) {
+                console.error('Error leyendo productos.json:', parseError);
+            }
         }
 
-        // Si hay un query param de orden, lo aplicamos antes de renderizar
         const criterio = req.query.ordenar;
         if (criterio === 'nombre') {
-            productos.sort((a, b) => a.titulo.localeCompare(b.titulo));
+            productos.sort((a, b) => a.nombre.localeCompare(b.nombre));
         } else if (criterio === 'precio') {
             productos.sort((a, b) => a.precio - b.precio);
         }
