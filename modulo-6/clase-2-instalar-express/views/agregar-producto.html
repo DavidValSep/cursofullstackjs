@@ -18,7 +18,18 @@
     <main>
         <h1>Agregar Producto</h1>
         <form action="/admin/agregar-producto" method="POST">
-            <input type="text" name="nombre" placeholder="Nombre del producto">
+            <p>
+                <lavel for="nombre">Nombre del producto:</lavel>
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre del producto">
+            </p>
+            <p>
+                <lavel for="precio">Precio del producto:</lavel>
+                <input type="text" id="precio" name="precio" placeholder="Precio del producto">
+            </p>
+            <p>
+                <lavel for="imagen">URL de la imagen del producto:</lavel>
+                <input type="text" id="imagen" name="imagen" placeholder="URL de la imagen del producto">
+            </p>
             <button type="submit">Agregar Producto</button>
         </form>
     </main>

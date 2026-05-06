@@ -17,15 +17,24 @@
     </header>
     <main>
         <h1>Mis Productos</h1>
+        <a href="/?ordenar=nombre" class="btn">Ordenar por Nombre</a>
+        <a href="/?ordenar=precio" class="btn">Ordenar por Precio</a>
         <% if (productos.length > 0) { %>
             <ul>
                 <% productos.forEach(producto => { %>
-                    <li><%= producto.titulo %></li>
+                    <li>
+                        <%= producto.titulo %><br />
+                        Precio: $<%= producto.precio %><br />
+                        <img src="<%= producto.imagen %>" alt="<%= producto.titulo %>" style="width: 100px; height: 100px;">
+                    </li>
                 <% }) %>
             </ul>
         <% } else { %>
             <p>No hay productos en la tienda.</p>
         <% } %>
     </main>
+    <script>
+
+    </script>
 </body>
 </html>
