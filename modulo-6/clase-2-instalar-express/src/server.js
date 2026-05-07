@@ -21,10 +21,21 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/admin', adminData.router);
 app.use(tiendaRoutes);
 
+// Middleware para rutas no encontradas (404) - debe ir al final
 app.use((req, res, next) => {
-    res.status(400).sendFile(path.join(rootDir, "views", "400.html"));
     res.status(404).sendFile(path.join(rootDir, "views", "404.html"));
-    res.status(405).sendFile(path.join(rootDir, "views", "405.html"));
+});
+
+// Middleware de manejo de errores (para errores 405, etc.) - debe tener 4 parámetros
+app.use((err, req, res, next) => {
+    console.error(err.stack); // Log del error para debugging
+    res.status(405).sendFile(path.join(rootDir, "views", "405.html")); // O una página genérica
+});
+
+// Middleware de manejo de errores (para errores 500, etc.) - debe tener 4 parámetros
+app.use((err, req, res, next) => {
+    console.error(err.stack); // Log del error para debugging
+    res.status(500).sendFile(path.join(rootDir, "views", "500.html")); // O una página genérica
 });
 
 app.listen(3000, () => {

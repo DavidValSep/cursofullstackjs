@@ -28,5 +28,15 @@
     "nombre": "Buzo",
     "precio": 12000,
     "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTokcw13jeyOpKAJVkkCxFu_f7qH1WFmn1hw&s"
+  },
+  {
+    "nombre": "Overol",
+    "precio": 13500,
+    "imagen": "https://www.apro.cl/cdn/shop/files/83400795000104-Blackwolf-Buzo-Naranjo-Coverall-F1.jpg?v=1774618568&width=1200"
+  },
+  {
+    "nombre": "Polera Estampada",
+    "precio": 5200,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3BtdEPHv-JdikdCU-pV7gILhZ6C2obvBkDA&s"
   }
 ]
