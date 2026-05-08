@@ -32,9 +32,10 @@ router.get("/", (req, res, next) => {
             productos.sort((a, b) => a.precio - b.precio);
         }
 
-        res.render('tienda', {
+        res.render('home', {
             productos: productos,
-            path: '/'
+            path: '/',
+            title: 'Tienda'
         });
     });
 });

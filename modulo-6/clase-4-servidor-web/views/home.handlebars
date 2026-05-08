@@ -1,0 +1,20 @@
+<main>
+    <h1>Mis Productos</h1>
+    <div class="btn-group">
+        <a href="/?ordenar=nombre" class="btn">Ordenar por Nombre</a>
+        <a href="/?ordenar=precio" class="btn">Ordenar por Precio</a>
+    </div>
+    {{#if productos.length}}
+        <ul class="products">
+            {{#each productos}}
+                <li class="product-item">
+                    <img src="{{ imagen }}" alt="{{ nombre }}" class="product-image">
+                    <h2 class="product-title">{{ nombre }}</h2>
+                    Precio: ${{ precio }}
+                </li>
+            {{/each}}
+        </ul>
+    {{else}}
+        <p>No hay productos en la tienda.</p>
+    {{/if}}
+</main>

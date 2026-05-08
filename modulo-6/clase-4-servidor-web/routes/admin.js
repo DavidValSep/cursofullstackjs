@@ -7,7 +7,7 @@ const rootDir = require("../utils/path");
 
 const p = path.join(rootDir, 'data', 'productos.json');
 router.get("/agregar-producto", (req, res, next) => {
-  res.sendFile(path.join(rootDir, "views", "agregar-producto.html"));
+  res.render("agregar-producto", { title: "Agregar Producto" });
 });
 
 router.post("/agregar-producto", (req, res, next) => {

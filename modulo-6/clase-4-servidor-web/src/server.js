@@ -15,8 +15,15 @@ const expressHbs = require("express-handlebars");
 const app = express();
 
 // configurar el motor de plantillas Handlebars
-app.engine("handlebars", expressHbs.engine({ extname: "handlebars", defaultLayout: "", layoutsDir: "" }));
+app.engine("handlebars", expressHbs.engine({
+    extname: "handlebars",
+    defaultLayout: "main",
+    layoutsDir: path.join(rootDir, "views", "partials"),
+    partialsDir: path.join(rootDir, "views", "partials")
+}));
 app.set("view engine", "handlebars");
+app.set("views", path.join(rootDir, "views"));
+;;
 app.use(express.static(path.join(rootDir, "public")));
 app.use(express.urlencoded({ extended: true }));
 
