@@ -7,7 +7,6 @@ const router = express.Router();
 const rootDir = require("../utils/path");
 const adminData = require("./admin");
 
-
 router.get("/", (req, res, next) => {
     fs.readFile(p, 'utf-8', (err, fileContent) => {
         let productos = [];
@@ -18,7 +17,8 @@ router.get("/", (req, res, next) => {
                 productos = data.map(producto => ({
                     nombre: producto.nombre || '',
                     precio: Number(producto.precio) || 0,
-                    imagen: producto.imagen || ''
+                    imagen: producto.imagen || '',
+                    disponible: producto.disponible
                 }));
             } catch (parseError) {
                 console.error('Error leyendo productos.json:', parseError);
@@ -35,8 +35,31 @@ router.get("/", (req, res, next) => {
         res.render('home', {
             productos: productos,
             path: '/',
-            title: 'Tienda'
+            title: 'MiniShop',
+            message: 'Bienvenido a MiniShop, tu tienda en línea de confianza'
         });
+    });
+});
+
+router.get("/contacto", (req, res, next) => {
+    res.render('contact', {
+        path: '/contacto',
+        title: 'Contáctenos'
+    });
+});
+
+router.get("/about", (req, res, next) => {
+    res.render('about', {
+        path: '/about',
+        title: 'Acerca de'
+    });
+});
+
+router.post("/success", (req, res, next) => {
+    res.render('success', {
+        path: '/success',
+        title: 'Mensaje enviado',
+        nombre: req.body.nombre,
     });
 });
 

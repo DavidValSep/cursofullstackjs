@@ -11,6 +11,7 @@ const adminData = require("../routes/admin");
 const tiendaRoutes = require("../routes/tienda");
 const rootDir = require("../utils/path");
 const expressHbs = require("express-handlebars");
+const Handlebars = require('handlebars');
 
 const app = express();
 
@@ -18,12 +19,20 @@ const app = express();
 app.engine("handlebars", expressHbs.engine({
     extname: "handlebars",
     defaultLayout: "main",
-    layoutsDir: path.join(rootDir, "views", "partials"),
+    layoutsDir: path.join(rootDir, "views", "layout"),
     partialsDir: path.join(rootDir, "views", "partials")
 }));
+
 app.set("view engine", "handlebars");
 app.set("views", path.join(rootDir, "views"));
-;;
+
+Handlebars.registerHelper('mayusculas', function(texto) {
+    if (texto && typeof texto === 'string') {
+        return texto.toUpperCase();
+    }
+    return texto;
+});
+
 app.use(express.static(path.join(rootDir, "public")));
 app.use(express.urlencoded({ extended: true }));
 

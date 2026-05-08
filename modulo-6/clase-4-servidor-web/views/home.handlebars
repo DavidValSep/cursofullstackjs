@@ -1,5 +1,8 @@
 <main>
-    <h1>Mis Productos</h1>
+    <h1>{{ mayusculas title }} - Mis Productos</h1>
+    <div class="message">
+        {{ message }}
+    </div>
     <div class="btn-group">
         <a href="/?ordenar=nombre" class="btn">Ordenar por Nombre</a>
         <a href="/?ordenar=precio" class="btn">Ordenar por Precio</a>
@@ -7,11 +10,13 @@
     {{#if productos.length}}
         <ul class="products">
             {{#each productos}}
-                <li class="product-item">
-                    <img src="{{ imagen }}" alt="{{ nombre }}" class="product-image">
-                    <h2 class="product-title">{{ nombre }}</h2>
-                    Precio: ${{ precio }}
-                </li>
+                {{#if disponible}}
+                    <li class="product-item">
+                        <img src="{{ imagen }}" alt="{{ nombre }}" class="product-image">
+                        <h2 class="product-title">{{ nombre }}</h2>
+                        Precio: ${{ precio }}
+                    </li>
+                {{/if}}
             {{/each}}
         </ul>
     {{else}}

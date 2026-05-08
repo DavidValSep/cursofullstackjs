@@ -26,7 +26,10 @@ router.post("/agregar-producto", (req, res, next) => {
         productos.push({
             nombre: req.body.nombre,
             precio: Number(req.body.precio) || 0,
-            imagen: req.body.imagen
+            imagen: req.body.imagen,
+            disponible: Array.isArray(req.body.disponible)
+                ? req.body.disponible.includes('true')
+                : req.body.disponible === 'true'
         });
 
         fs.writeFile(p, JSON.stringify(productos, null, 2), 'utf-8', (writeErr) => {
