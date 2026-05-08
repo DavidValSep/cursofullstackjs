@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda</title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class=""><a href="/">Home</a></li>
+                <li><a href="/admin/agregar-producto">Agregar Producto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Mis Productos</h1>
+        <div class="btn-group">
+            <a href="/?ordenar=nombre" class="btn">Ordenar por Nombre</a>
+            <a href="/?ordenar=precio" class="btn">Ordenar por Precio</a>
+        </div>
+        {{#if productos.length}}
+            <ul class="products">
+                {{#each productos}}
+                    <li class="product-item">
+                        <img src="{{ imagen }}" alt="{{ nombre }}" class="product-image">
+                        <h2 class="product-title">{{ nombre }}</h2>
+                        Precio: ${{ precio }}
+                    </li>
+                {{/each}}
+            </ul>
+        {{else}}
+            <p>No hay productos en la tienda.</p>
+        {{/if}}
+    </main>
+    <script>
+
+    </script>
+</body>
+</html>

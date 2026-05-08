@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Producto</title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/admin/agregar-producto">Agregar Producto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Agregar Producto</h1>
+        <form action="/admin/agregar-producto" method="POST">
+            <p>
+                <label for="nombre">Nombre del producto:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre del producto">
+            </p>
+            <p>
+                <label for="precio">Precio del producto:</label>
+                <input type="text" id="precio" name="precio" placeholder="Precio del producto">
+            </p>
+            <p>
+                <label for="imagen">URL de la imagen del producto:</label>
+                <input type="text" id="imagen" name="imagen" placeholder="URL de la imagen del producto">
+            </p>
+            <button type="submit" class="btn">Agregar Producto</button>
+        </form>
+    </main>
+</body>
+</html>

@@ -1,0 +1,42 @@
+[
+  {
+    "nombre": "Polera",
+    "precio": 3500,
+    "imagen": "https://tworldstore.cl/3809-large_default/polera-essential-soft-hombre-mc.jpg"
+  },
+  {
+    "nombre": "Poleron",
+    "precio": 5500,
+    "imagen": "https://planetsport.cl/cdn/shop/files/UNAPPPOL462.png?v=1754943067&width=800"
+  },
+  {
+    "nombre": "Zapatillas",
+    "precio": 9000,
+    "imagen": "https://www.cricket-hockey.com/90847-large_default/asics-field-speed-ff-2-hockey-shoes-midnight-cream-2025-26.jpg"
+  },
+  {
+    "nombre": "zapatos",
+    "precio": 7500,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq8znjC64iVBzHZhrMzJ_qGVobpfwnArLySQ&s"
+  },
+  {
+    "nombre": "Pantalón Buzo",
+    "precio": 7200,
+    "imagen": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa/global/684912/16/mod01/fnd/CHL/w/1000/h/1000/fmt/png"
+  },
+  {
+    "nombre": "Buzo",
+    "precio": 12000,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTokcw13jeyOpKAJVkkCxFu_f7qH1WFmn1hw&s"
+  },
+  {
+    "nombre": "Overol",
+    "precio": 13500,
+    "imagen": "https://www.apro.cl/cdn/shop/files/83400795000104-Blackwolf-Buzo-Naranjo-Coverall-F1.jpg?v=1774618568&width=1200"
+  },
+  {
+    "nombre": "Polera Estampada",
+    "precio": 5200,
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3BtdEPHv-JdikdCU-pV7gILhZ6C2obvBkDA&s"
+  }
+]
