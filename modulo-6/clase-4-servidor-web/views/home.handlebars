@@ -16,6 +16,12 @@
                         <h2 class="product-title">{{ nombre }}</h2>
                         Precio: ${{ precio }}
                     </li>
+                {{else}}
+                    <li class="product-item">
+                        <img src="{{ imagen }}" alt="{{ nombre }}" class="product-image">
+                        <h2 class="product-title">{{ nombre }}</h2>
+                        <strong>Sin Stock</strong>
+                    </li>
                 {{/if}}
             {{/each}}
         </ul>
