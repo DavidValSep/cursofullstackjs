@@ -24,6 +24,16 @@ app.set("views", path.join(rootDir, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(rootDir, "public")));
 
+//Metodos no permitidos
+app.use((req, res, next) => {
+  const metodosPermitidos = ["GET", "POST", "DELETE"];
+  if (!metodosPermitidos.includes(req.method)) {
+    // Si el método no es permitido, enviamos error 405
+    return res.status(405).render("metodo-no-permitido");
+  }
+  next();
+});
+
 // Rutas
 app.use("/", catalogRoutes);
 
