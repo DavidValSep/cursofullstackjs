@@ -1,0 +1,196 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #141414;
+  color: #fff;
+  padding: 40px 4%;
+  line-height: 1.4;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #e50914;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: #e5e5e5;
+}
+
+/* Buttons */
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  align-items: center;
+}
+
+button {
+  background-color: #e50914;
+  color: white;
+  border-radius: 2px; /* Menos redondeado, más profesional */
+  padding: 12px 24px;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+button:hover {
+  background-color: #b20710;
+}
+
+a {
+  color: #e5e5e5;
+  text-decoration: none;
+}
+
+a button {
+  background-color: #333;
+}
+
+a button:hover {
+  background-color: #555;
+}
+
+/* Sort controls */
+#sortControls {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#sortControls label {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* Sort links */
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.sort-link {
+  color: #aaa;
+  text-decoration: none;
+  padding: 4px 10px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.sort-link:hover {
+  color: #e5e5e5;
+  border-color: #e5e5e5;
+}
+
+/* List */
+#displayArea ul,
+.catalog-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+#displayArea li,
+.catalog-list li {
+  background-color: #181818;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem; /* Un poco más de aire */
+  overflow: hidden;
+  border-radius: 0.25rem;
+  transition: transform 0.3s ease;
+  border: 1px solid #222;
+  
+  /* --- NUEVAS PROPIEDADES --- */
+  min-height: 12rem; /* Altura mínima consistente */
+  display: flex;
+  justify-content: space-between; /* Empuja el botón hacia abajo */
+}
+
+#displayArea li:hover,
+.catalog-list li:hover {
+  transform: scale(1.05); /* Zoom al pasar el mouse */
+  z-index: 10;
+  cursor: pointer;
+  border-color: #444;
+}
+
+/* Secondary button */
+.btn-secondary {
+  background-color: #333 !important;
+}
+
+.btn-secondary:hover {
+  background-color: #555 !important;
+}
+
+/* Error message */
+.error {
+  color: #e50914;
+  background-color: #2a0000;
+  border: 1px solid #e50914;
+  padding: 10px 16px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+}
+
+/* Forms */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px auto 8px;;
+  background-color: #1f1f1f;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+}
+
+input, select {
+  background-color: #333 !important;
+  border: none !important;
+  border-bottom: 2px solid transparent !important;
+  transition: border-color 0.2s;
+}
+
+input::placeholder {
+  color: #777;
+}
+
+input:focus {
+  background-color: #444 !important;
+  border-bottom: 2px solid #e50914 !important;
+}
+
+form button {
+  width: 100%;
+  margin-top: 4px;
+}
+
+/* Back link */
+a:not([href="#"]) {
+  display: inline-block;
+  margin-bottom: 24px;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+a:not([href="#"]):hover {
+  color: #e5e5e5;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/main.css">
+    <title>Netflix Catalog</title>
+</head>
+
+<body>
+    <h1>Catálogo de Netflix</h1>
+
+    <div class="actions">
+        <a href="/?type=movies"><button>LISTA DE PELÍCULAS</button></a>
+        <a href="/?type=series"><button>LISTA DE SERIES</button></a>
+        <a href="/agregar-peliculas"><button class="btn-secondary">AGREGAR CONTENIDO</button></a>
+    </div>
+
+    {{#if items}}
+    <div class="sort-controls">
+        <span>Ordenar por:</span>
+        <a href="/?type={{type}}&sort=name" class="sort-link">Nombre</a>
+        <a href="/?type={{type}}&sort=year" class="sort-link">Año</a>
+        {{#if isMovies}}
+        <a href="/?type={{type}}&sort=director" class="sort-link">Director</a>
+        {{else}}
+        <a href="/?type={{type}}&sort=seasons" class="sort-link">Temporadas</a>
+        {{/if}}
+    </div>
+
+    <ul class="catalog-list">
+        {{#each items}}
+        <li>
+            <span>{{name}} - {{year}}
+            {{#if ../isMovies}}(Dir: {{director}}){{else}}({{seasons}} temp){{/if}}</span>
+            <form method="POST" action="/eliminar/{{../type}}/{{encodeURIComponent name}}">
+                <button type="submit" class="btn-delete">Eliminar</button>
+            </form>
+        </li>
+        {{/each}}
+    </ul>
+    {{/if}}
+
+    {{#if error}}
+    <p class="error">{{error}}</p>
+    {{/if}}
+</body>
+
+</html>

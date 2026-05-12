@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/main.css">
+    <title>Agregar a Netflix</title>
+</head>
+
+<body>
+    <h1>Agregar a Netflix</h1>
+
+    <a href="/">← Volver al catálogo</a>
+
+    {{#if error}}
+    <p class="error">{{error}}</p>
+    {{/if}}
+
+    <h3>Agregar Película</h3>
+    <form action="/agregar-peliculas" method="POST">
+        <input type="hidden" name="type" value="movies">
+        <input type="text" name="name" placeholder="Nombre" required>
+        <input type="text" name="director" placeholder="Director" required>
+        <input type="number" name="year" placeholder="Año" required>
+        <button type="submit">AGREGAR NUEVA PELÍCULA</button>
+    </form>
+
+    <h3>Agregar Serie</h3>
+    <form action="/agregar-peliculas" method="POST">
+        <input type="hidden" name="type" value="series">
+        <input type="text" name="name" placeholder="Nombre" required>
+        <input type="number" name="year" placeholder="Año" required>
+        <input type="number" name="seasons" placeholder="Temporadas" required>
+        <button type="submit">AGREGAR NUEVA SERIE</button>
+    </form>
+</body>
+
+</html>
