@@ -62,13 +62,13 @@ const postAgregar = async (req, res) => {
   }
 };
 
-// POST /eliminar/:type/:name
+// POST /eliminar/:type/:id
 const deleteItem = async (req, res) => {
-  const { type, name } = req.params;
+  const { type, id } = req.params;
 
   try {
     const items = await readItems(type);
-    const filtered = items.filter((item) => item.name !== decodeURIComponent(name));
+    const filtered = items.filter((item) => item.id !== parseInt(id, 10));
     await writeItems(type, filtered);
     res.redirect(`/?type=${type}`);
   } catch (err) {

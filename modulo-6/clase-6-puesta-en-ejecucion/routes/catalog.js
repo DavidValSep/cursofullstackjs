@@ -11,7 +11,7 @@ const {
 router.get("/", getCatalog);
 router.get("/agregar-peliculas", getAgregar);
 router.post("/agregar-peliculas", postAgregar);
-router.post("/eliminar/:type/:name", deleteItem);
+router.post("/eliminar/:type/:id", deleteItem);
 router.get("/detail/:type/:id", getDetail);
 
 module.exports = router;
