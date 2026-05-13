@@ -5,6 +5,7 @@ const {
   getAgregar,
   postAgregar,
   deleteItem,
+  getDetail,
 } = require("../controllers/catalogController");
 
 router.get("/", getCatalog);

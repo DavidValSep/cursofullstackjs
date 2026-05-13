@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/main.css">
+  <title>Detalle - {{item.name}}</title>
+</head>
+
+<body>
+  <h1>{{item.name}}</h1>
+
+  <div class="detail-card">
+    <p><strong>Año:</strong> {{item.year}}</p>
+    {{#if isMovies}}
+    <p><strong>Director:</strong> {{item.director}}</p>
+    {{else}}
+    <p><strong>Temporadas:</strong> {{item.seasons}}</p>
+    {{/if}}
+  </div>
+
+  <div class="actions">
+    <a href="/?type={{type}}"><button>Volver al catálogo</button></a>
+  </div>
+</body>
+
+</html>

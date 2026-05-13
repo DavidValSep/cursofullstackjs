@@ -33,8 +33,8 @@
         <li>
             <span>{{name}} - {{year}}
             {{#if ../isMovies}}(Dir: {{director}}){{else}}({{seasons}} temp){{/if}}</span>
-            <form method="POST" action="/eliminar/{{../type}}/{{encodeURIComponent name}}">
             <a href="/detail/{{../type}}/{{@index}}"><button class="btn-secondary">Ver detalle</button></a>
+            <form method="POST" action="/eliminar/{{../type}}/{{encodeURIComponent name}}">
                 <button type="submit" class="btn-delete">Eliminar</button>
             </form>
         </li>
