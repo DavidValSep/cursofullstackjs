@@ -76,4 +76,26 @@ const deleteItem = async (req, res) => {
   }
 };
 
-module.exports = { getCatalog, getAgregar, postAgregar, deleteItem };
+const getDetail = async (req, res) => {
+  const { type, id } = req.params;
+  const index = parseInt(id, 10);
+
+  if (isNaN(index) || index < 0) {
+    return res.status(400).render("no-encontrado");
+  }
+
+  try {
+    const items = await readItems(type);
+    const item = items[index];
+
+    if (!item) {
+      return res.status(404).render("no-encontrado");
+    }
+
+    res.render("detail", { type, id: index, item, isMovies: type === "movies" });
+  } catch (err) {
+    res.status(500).render("no-encontrado");
+  }
+};
+
+module.exports = { getCatalog, getAgregar, postAgregar, deleteItem, getDetail };
