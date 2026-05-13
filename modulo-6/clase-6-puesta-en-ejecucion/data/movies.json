@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "2001 Odisea en el espacio",
+    "director": "Stanley Kubrick",
+    "year": "1968"
+  },
+  {
+    "id": 2,
+    "name": "The Matrix",
+    "director": "Lilly Wachowski, Lana Wachowski",
+    "year": "1999"
+  },
+  {
+    "id": 3,
+    "name": "Scream",
+    "director": "Wes Craven",
+    "year": "1996"
+  },
+  {
+    "id": 4,
+    "name": "Inception",
+    "director": "Christopher Nolan",
+    "year": "2010"
+  },
+  {
+    "id": 5,
+    "name": "Pulp Fiction",
+    "director": "Quentin Tarantino",
+    "year": "1994"
+  },
+  {
+    "id": 6,
+    "name": "Blade Runner 2049",
+    "director": "Denis Villeneuve",
+    "year": "2017"
+  },
+  {
+    "id": 7,
+    "name": "The Godfather",
+    "director": "Francis Ford Coppola",
+    "year": "1972"
+  },
+  {
+    "id": 8,
+    "name": "Interstellar",
+    "director": "Christopher Nolan",
+    "year": "2014"
+  },
+  {
+    "id": 9,
+    "name": "Parasite",
+    "director": "Bong Joon-ho",
+    "year": "2019"
+  },
+  {
+    "id": 10,
+    "name": "The Shining",
+    "director": "Stanley Kubrick",
+    "year": "1980"
+  },
+  {
+    "id": 11,
+    "name": "Fight Club",
+    "director": "David Fincher",
+    "year": "1999"
+  },
+  {
+    "id": 12,
+    "name": "Alien",
+    "director": "Ridley Scott",
+    "year": "1979"
+  },
+  {
+    "id": 13,
+    "name": "Seven",
+    "director": "David Fincher",
+    "year": "1995"
+  },
+  {
+    "id": 14,
+    "name": "The Dark Knight",
+    "director": "Christopher Nolan",
+    "year": "2008"
+  },
+  {
+    "id": 15,
+    "name": "Gladiator",
+    "director": "Ridley Scott",
+    "year": "2000"
+  },
+  {
+    "id": 16,
+    "name": "The Truman Show",
+    "director": "Peter Weir",
+    "year": "1998"
+  },
+  {
+    "id": 17,
+    "name": "Mad Max: Fury Road",
+    "director": "George Miller",
+    "year": "2015"
+  },
+  {
+    "id": 18,
+    "name": "Goodfellas",
+    "director": "Martin Scorsese",
+    "year": "1990"
+  },
+  {
+    "id": 19,
+    "name": "Arrival",
+    "director": "Denis Villeneuve",
+    "year": "2016"
+  },
+  {
+    "id": 20,
+    "name": "Joker",
+    "director": "Todd Phillips",
+    "year": "2019"
+  }
+]
