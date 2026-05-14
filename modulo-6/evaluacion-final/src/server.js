@@ -10,7 +10,7 @@ app.engine(
   "handlebars",
   expressHbs.engine({
     extname: "handlebars",
-    defaultLayout: false,
+    defaultLayout: "layout",
     helpers: {
       encodeURIComponent: (str) => encodeURIComponent(str),
     },

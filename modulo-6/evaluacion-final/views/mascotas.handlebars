@@ -1,26 +1,32 @@
-<h1>Registro Nacional de Mascotas</h1>
+<div class="container">
+    <h1>Registro Nacional de Mascotas</h1>
 
-<div class="catalog-list">
-    {{#each duenos}}
-    <li class="owner-card">
-        <div class="owner-info">
-            <h3>Dueño: {{this.nombre_dueno}}</h3>
-            <p><strong>RUT:</strong> {{this.rut_dueno}}</p>
-        </div>
-        
-        <div class="pet-list-container">
-            <strong>Mascotas:</strong>
-            <ul>
-                {{#each this.mascotas}}
-                <li>🐾 {{this.nombre}} ({{this.especie}})</li>
-                {{/each}}
-            </ul>
-        </div>
+    <div class="catalog-list">
+        {{#each duenos}}
+        <div class="owner-card">
+            <div class="owner-info">
+                <h3>Dueño: {{this.nombre_dueno}}</h3>
+                <p><strong>RUT:</strong> {{this.rut_dueno}}</p>
+            </div>
 
-        <div class="actions">
-            <!-- Botón de ejemplo para ver detalle del dueño -->
-            <a href="/detalle/{{this.rut_dueno}}" class="btn-secondary">Gestionar Dueño</a>
+            <div class="pet-list-container">
+                <strong>Mascotas:</strong>
+                <ul>
+                    {{#each this.mascotas}}
+                    <li>
+                        <strong>🐾 {{this.nombre}}</strong> ({{this.especie}})
+                        <br>
+                        <a href="/mascota/{{this.id}}" style="padding: 0.25rem;color: #3498db; font-size: 0.8rem;">Ver Ficha</a>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+
+            <div class="actions">
+                <!-- Botón de ejemplo para ver detalle del dueño -->
+                <a href="/detalle/{{this.rut_dueno}}" class="btn btn-secondary">Gestionar Dueño</a>
+            </div>
         </div>
-    </li>
-    {{/each}}
+        {{/each}}
+    </div>
 </div>

@@ -1,211 +1,315 @@
+/* Estilos para el layout */
+.main-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    padding: 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-title {
+    color: white;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.main-content {
+    min-height: calc(100vh - 200px);
+    padding: 20px 0;
+}
+
+.main-footer {
+    background-color: #34495e;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Estilos existentes */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  /* Tipografía más suave y fondo claro profesional */
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: #f4f7f6; 
-  color: #333;
-  padding: 40px 4%;
-  line-height: 1.6;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 h1 {
-  font-size: 2.5rem;
-  /* Azul institucional para confianza */
-  color: #2c3e50; 
-  font-weight: 700;
-  margin-bottom: 20px;
-  border-bottom: 3px solid #f39c12; /* Detalle naranja cálido */
-  display: inline-block;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    text-align: center;
 }
 
-h3 {
-  font-size: 1.2rem;
-  margin-bottom: 12px;
-  color: #34495e;
+h2 {
+    color: #34495e;
+    margin-bottom: 20px;
 }
 
-/* Contenedores de botones */
-.actions {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 24px;
-  align-items: center;
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-/* Botón principal - Naranja "Alegre" */
-button {
-  background-color: #e67e22;
-  color: white;
-  border: none;
-  border-radius: 25px; /* Bordes redondeados = amigable/mascotas */
-  padding: 12px 28px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+.btn:hover {
+    background-color: #2980b9;
 }
 
-button:hover {
-  background-color: #d35400;
-  transform: translateY(-2px);
-}
-
-.btn-delete {
-  background-color: #e74c3c !important; /* Rojo suave para eliminar */
-}
-
-.btn-delete:hover {
-  background-color: #c0392b !important;
-}
-
-/* Enlaces y Botones secundarios */
-a {
-  color: #2980b9;
-  text-decoration: none;
-}
-
-a button {
-  background-color: #3498db; /* Azul para acciones secundarias */
-}
-
-a button:hover {
-  background-color: #2980b9;
-}
-
-/* Controles de orden */
-.sort-controls {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-  font-size: 0.95rem;
-  color: #7f8c8d;
-}
-
-.sort-link {
-  color: #2c3e50;
-  text-decoration: none;
-  padding: 6px 15px;
-  border: 2px solid #bdc3c7;
-  border-radius: 20px;
-  transition: all 0.2s;
-  background-color: #fff;
-}
-
-.sort-link:hover {
-  background-color: #3498db;
-  color: white;
-  border-color: #3498db;
-}
-
-/* Grilla de Mascotas / Dueños */
-#displayArea ul,
-.catalog-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 25px;
-  list-style: none;
-}
-
-#displayArea li,
-.catalog-list li {
-  background-color: #ffffff;
-  padding: 1.5rem;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  border: none;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 14rem;
-  border-top: 5px solid #3498db; /* Identificador visual superior */
-}
-
-#displayArea li:hover,
-.catalog-list li:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-  border-color: #f39c12;
-}
-
-/* Botón de detalle dentro de la tarjeta */
 .btn-secondary {
-  width: 100%;
-  margin-top: 10px;
-  background-color: #ecf0f1 !important;
-  color: #2c3e50 !important;
-  box-shadow: none;
+    background-color: #95a5a6;
 }
 
 .btn-secondary:hover {
-  background-color: #bdc3c7 !important;
+    background-color: #7f8c8d;
 }
 
-/* Mensajes de Alerta/Error */
+.btn-danger {
+    background-color: #e74c3c;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
+.btn-small {
+    padding: 5px 10px;
+    font-size: 0.9em;
+}
+
 .error {
-  color: #c0392b;
-  background-color: #f9ebeb;
-  border: 1px solid #e74c3c;
-  padding: 12px 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #f5c6cb;
 }
 
-/* Formularios de Registro */
-form {
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  border: 1px solid #e0e0e0;
-  max-width: 600px;
-  margin: 20px 0;
+.welcome {
+    text-align: center;
+    margin-top: 50px;
 }
 
-input, select {
-  width: 100%;
-  background-color: #f9f9f9 !important;
-  border: 2px solid #ecf0f1 !important;
-  color: #333;
-  padding: 12px;
-  border-radius: 8px !important;
-  font-size: 1rem;
-  margin-bottom: 10px;
-  transition: border-color 0.3s;
+.welcome p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
 }
 
-input:focus {
-  background-color: #fff !important;
-  border-color: #3498db !important;
-  outline: none;
+.actions {
+    margin-bottom: 30px;
+    text-align: center;
 }
 
-input::placeholder {
-  color: #bdc3c7;
+.mascotas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
 }
 
-form button {
-  width: 100%;
-  margin-top: 10px;
-  padding: 15px;
-  font-size: 1.1rem;
+.mascota-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
 }
 
-/* Enlace de volver */
-a:not([href="#"]) {
-  display: inline-block;
-  margin-top: 20px;
-  color: #7f8c8d;
-  font-weight: 500;
+.mascota-card:hover {
+    transform: translateY(-5px);
 }
 
-a:not([href="#"]):hover {
-  color: #2980b9;
+.mascota-card h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.mascota-card p {
+    margin-bottom: 15px;
+}
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.form {
+    max-width: 500px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.mascota-detail {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.mascota-detail h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.mascota-detail p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+/* Estilos para la vista de mascotas */
+.catalog-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.owner-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.owner-card:hover {
+    transform: translateY(-5px);
+}
+
+.owner-info {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.owner-info h3 {
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.owner-info p {
+    color: #7f8c8d;
+    font-size: 0.9em;
+}
+
+.pet-list-container {
+    margin-bottom: 15px;
+}
+
+.pet-list-container strong {
+    display: block;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.pet-list-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.pet-list-container li {
+    padding: 5px 0;
+    border-bottom: 1px solid #f8f9fa;
+}
+
+.pet-list-container li:last-child {
+    border-bottom: none;
 }

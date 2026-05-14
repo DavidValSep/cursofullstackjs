@@ -23,4 +23,38 @@ const getAllMascotas = async (req, res) => {
     }
 };
 
-module.exports = { getAllMascotas };
+const getMascotaById = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const duenos = await readMascotas();
+        
+        let mascotaEncontrada = null;
+        let rutDelDueno = null;
+
+        // Recorremos los dueños para buscar la mascota por ID
+        duenos.forEach(dueno => {
+            const mascota = dueno.mascotas.find(m => m.id == id);
+            if (mascota) {
+                mascotaEncontrada = mascota;
+                rutDelDueno = dueno.rut_dueno;
+            }
+        });
+
+        if (mascotaEncontrada) {
+            // Retornamos la mascota encontrada y el RUT del dueño
+            // Puedes renderizar una vista o enviar un JSON según prefieras
+            res.render('detalle-mascota', { 
+                mascota: mascotaEncontrada, 
+                rut_dueno: rutDelDueno 
+            });
+        } else {
+            res.status(404).render('no-encontrado', { mensaje: "Mascota no encontrada" });
+        }
+    } catch (err) {
+        console.error("Error al buscar mascota:", err);
+        res.status(500).send("Error interno del servidor");
+    }
+};
+
+module.exports = { getAllMascotas, 
+    getMascotaById };
