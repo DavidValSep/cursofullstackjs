@@ -1,0 +1,152 @@
+[
+  {
+    "rut_dueno": "12.345.678-1",
+    "nombre_dueno": "Roberto Valencia",
+    "mascotas": [
+      { "id": 1, "nombre": "Thor", "especie": "Perro" },
+      { "id": 2, "nombre": "Sasha", "especie": "Gato" }
+    ]
+  },
+  {
+    "rut_dueno": "15.672.110-k",
+    "nombre_dueno": "Ana María Esparza",
+    "mascotas": [
+      { "id": 3, "nombre": "Copito", "especie": "Conejo" }
+    ]
+  },
+  {
+    "rut_dueno": "10.223.445-2",
+    "nombre_dueno": "Carlos Soto",
+    "mascotas": [
+      { "id": 4, "nombre": "Rex", "especie": "Perro" },
+      { "id": 5, "nombre": "Mimi", "especie": "Gato" },
+      { "id": 6, "nombre": "Firulais", "especie": "Perro" }
+    ]
+  },
+  {
+    "rut_dueno": "18.990.123-4",
+    "nombre_dueno": "Lucía Méndez",
+    "mascotas": [
+      { "id": 7, "nombre": "Luna", "especie": "Gato" }
+    ]
+  },
+  {
+    "rut_dueno": "7.654.321-0",
+    "nombre_dueno": "Pedro Alcántara",
+    "mascotas": [
+      { "id": 8, "nombre": "Boby", "especie": "Perro" },
+      { "id": 9, "nombre": "Toby", "especie": "Perro" }
+    ]
+  },
+  {
+    "rut_dueno": "13.445.667-8",
+    "nombre_dueno": "Elena Rivas",
+    "mascotas": [
+      { "id": 10, "nombre": "Simba", "especie": "Gato" }
+    ]
+  },
+  {
+    "rut_dueno": "16.778.990-1",
+    "nombre_dueno": "Mauricio Garcés",
+    "mascotas": [
+      { "id": 11, "nombre": "Rambo", "especie": "Hámster" },
+      { "id": 12, "nombre": "Dino", "especie": "Iguana" }
+    ]
+  },
+  {
+    "rut_dueno": "11.222.333-k",
+    "nombre_dueno": "Patricia Vera",
+    "mascotas": [
+      { "id": 13, "nombre": "Bella", "especie": "Perro" }
+    ]
+  },
+  {
+    "rut_dueno": "20.111.222-3",
+    "nombre_dueno": "Felipe Iturra",
+    "mascotas": [
+      { "id": 14, "nombre": "Cachupín", "especie": "Perro" },
+      { "id": 15, "nombre": "Pelusa", "especie": "Gato" }
+    ]
+  },
+  {
+    "rut_dueno": "9.887.665-4",
+    "nombre_dueno": "Gloria Trevi",
+    "mascotas": [
+      { "id": 16, "nombre": "Kira", "especie": "Perro" }
+    ]
+  },
+  {
+    "rut_dueno": "14.556.778-9",
+    "nombre_dueno": "Andrés Bello",
+    "mascotas": [
+      { "id": 17, "nombre": "Nala", "especie": "Gato" },
+      { "id": 18, "nombre": "Oreo", "especie": "Gato" }
+    ]
+  },
+  {
+    "rut_dueno": "17.443.221-0",
+    "nombre_dueno": "Carmen Gloria",
+    "mascotas": [
+      { "id": 19, "nombre": "Pipo", "especie": "Canario" }
+    ]
+  },
+  {
+    "rut_dueno": "8.334.556-k",
+    "nombre_dueno": "Jorge González",
+    "mascotas": [
+      { "id": 20, "nombre": "Sudaka", "especie": "Perro" },
+      { "id": 21, "nombre": "Estrella", "especie": "Gato" }
+    ]
+  },
+  {
+    "rut_dueno": "19.776.554-3",
+    "nombre_dueno": "Daniela Castillo",
+    "mascotas": [
+      { "id": 22, "nombre": "Milo", "especie": "Perro" }
+    ]
+  },
+  {
+    "rut_dueno": "12.889.001-2",
+    "nombre_dueno": "Esteban Paredes",
+    "mascotas": [
+      { "id": 23, "nombre": "Goleador", "especie": "Perro" },
+      { "id": 24, "nombre": "Capitán", "especie": "Perro" }
+    ]
+  },
+  {
+    "rut_dueno": "21.332.445-k",
+    "nombre_dueno": "Valentina Roth",
+    "mascotas": [
+      { "id": 25, "nombre": "Candy", "especie": "Gato" }
+    ]
+  },
+  {
+    "rut_dueno": "6.778.990-4",
+    "nombre_dueno": "Humberto Suazo",
+    "mascotas": [
+      { "id": 26, "nombre": "Chupete", "especie": "Perro" },
+      { "id": 27, "nombre": "Peluca", "especie": "Perro" }
+    ]
+  },
+  {
+    "rut_dueno": "10.445.332-1",
+    "nombre_dueno": "Rosa Espinoza",
+    "mascotas": [
+      { "id": 28, "nombre": "Manchas", "especie": "Conejo" }
+    ]
+  },
+  {
+    "rut_dueno": "13.998.776-5",
+    "nombre_dueno": "Gonzalo Jara",
+    "mascotas": [
+      { "id": 29, "nombre": "Dedo", "especie": "Gato" }
+    ]
+  },
+  {
+    "rut_dueno": "15.223.114-0",
+    "nombre_dueno": "Mónica Pérez",
+    "mascotas": [
+      { "id": 30, "nombre": "Noticia", "especie": "Perro" }
+    ]
+  }
+]

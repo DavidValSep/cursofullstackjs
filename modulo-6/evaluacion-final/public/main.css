@@ -1,0 +1,211 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* Tipografía más suave y fondo claro profesional */
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f4f7f6; 
+  color: #333;
+  padding: 40px 4%;
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: 2.5rem;
+  /* Azul institucional para confianza */
+  color: #2c3e50; 
+  font-weight: 700;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #f39c12; /* Detalle naranja cálido */
+  display: inline-block;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: #34495e;
+}
+
+/* Contenedores de botones */
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  align-items: center;
+}
+
+/* Botón principal - Naranja "Alegre" */
+button {
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  border-radius: 25px; /* Bordes redondeados = amigable/mascotas */
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+button:hover {
+  background-color: #d35400;
+  transform: translateY(-2px);
+}
+
+.btn-delete {
+  background-color: #e74c3c !important; /* Rojo suave para eliminar */
+}
+
+.btn-delete:hover {
+  background-color: #c0392b !important;
+}
+
+/* Enlaces y Botones secundarios */
+a {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+a button {
+  background-color: #3498db; /* Azul para acciones secundarias */
+}
+
+a button:hover {
+  background-color: #2980b9;
+}
+
+/* Controles de orden */
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  color: #7f8c8d;
+}
+
+.sort-link {
+  color: #2c3e50;
+  text-decoration: none;
+  padding: 6px 15px;
+  border: 2px solid #bdc3c7;
+  border-radius: 20px;
+  transition: all 0.2s;
+  background-color: #fff;
+}
+
+.sort-link:hover {
+  background-color: #3498db;
+  color: white;
+  border-color: #3498db;
+}
+
+/* Grilla de Mascotas / Dueños */
+#displayArea ul,
+.catalog-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+  list-style: none;
+}
+
+#displayArea li,
+.catalog-list li {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 14rem;
+  border-top: 5px solid #3498db; /* Identificador visual superior */
+}
+
+#displayArea li:hover,
+.catalog-list li:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  border-color: #f39c12;
+}
+
+/* Botón de detalle dentro de la tarjeta */
+.btn-secondary {
+  width: 100%;
+  margin-top: 10px;
+  background-color: #ecf0f1 !important;
+  color: #2c3e50 !important;
+  box-shadow: none;
+}
+
+.btn-secondary:hover {
+  background-color: #bdc3c7 !important;
+}
+
+/* Mensajes de Alerta/Error */
+.error {
+  color: #c0392b;
+  background-color: #f9ebeb;
+  border: 1px solid #e74c3c;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* Formularios de Registro */
+form {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border: 1px solid #e0e0e0;
+  max-width: 600px;
+  margin: 20px 0;
+}
+
+input, select {
+  width: 100%;
+  background-color: #f9f9f9 !important;
+  border: 2px solid #ecf0f1 !important;
+  color: #333;
+  padding: 12px;
+  border-radius: 8px !important;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  background-color: #fff !important;
+  border-color: #3498db !important;
+  outline: none;
+}
+
+input::placeholder {
+  color: #bdc3c7;
+}
+
+form button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 15px;
+  font-size: 1.1rem;
+}
+
+/* Enlace de volver */
+a:not([href="#"]) {
+  display: inline-block;
+  margin-top: 20px;
+  color: #7f8c8d;
+  font-weight: 500;
+}
+
+a:not([href="#"]):hover {
+  color: #2980b9;
+}
