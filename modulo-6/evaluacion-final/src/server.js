@@ -1,10 +1,21 @@
 const path = require("path");
 const express = require("express");
 const rootDir = require("../utils/path");
-const mascotasRoutes = require("../routes/mascotas");
-
+const expressHbs = require("express-handlebars");
+const mascotasRoutes = require('../routes/mascotas');
 const app = express();
+app.use(express.static(path.join(__dirname, "../public")));
 
+app.engine(
+  "handlebars",
+  expressHbs.engine({
+    extname: "handlebars",
+    defaultLayout: false,
+    helpers: {
+      encodeURIComponent: (str) => encodeURIComponent(str),
+    },
+  }),
+);
 app.set("view engine", "handlebars");
 app.set("views", path.join(rootDir, "views"));
 
@@ -23,11 +34,11 @@ app.use((req, res, next) => {
 });
 
 // Rutas
-app.use("/", mascotasRoutes);
+app.use('/', mascotasRoutes);
 
-// 404
+// Cambia esto temporalmente en server.js
 app.use((req, res) => {
-  res.status(404).render("no-encontrado");
+  res.status(404).send("Archivo o ruta no encontrada: " + req.url);
 });
 
 const server = app.listen(3000, () => {

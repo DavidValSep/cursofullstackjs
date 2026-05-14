@@ -1,9 +1,8 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const {
-  getMascotas,
-} = require("../controllers/mascotasController");
+const mascotasController = require('../controllers/mascotasController');
 
-router.get("/", getMascotas);
+// Ruta principal en GET
+router.get('/', mascotasController.getAllMascotas);
 
 module.exports = router;
