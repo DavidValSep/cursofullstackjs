@@ -12,7 +12,11 @@
         <hr>
         <p><strong>Nombre del Dueño:</strong> {{dueno.nombre_dueno}}</p>
         <p><strong>RUT:</strong> {{dueno.rut_dueno}}</p>
-
+        <div class="actions" style="margin-top: 20px;">
+            <button onclick="vaciarMascotas('{{dueno.rut_dueno}}')" class="btn-delete" style="background-color: #e74c3c; width: 100%;">
+                Vaciar todas las mascotas 🗑️
+            </button>
+        </div>
         <div class="pet-list-container" style="margin-top: 20px;">
             <h3>Mascotas Registradas:</h3>
             <ul style="list-style: none; padding: 0;">
@@ -30,5 +34,28 @@
             <a href="/" class="btn-secondary">Volver al listado principal</a>
         </div>
     </div>
+<script>
+        function vaciarMascotas(rut) {
+            console.log("Intentando vaciar mascotas para el RUT:", rut); // Para debug en consola F12
+            
+            if (confirm('¿Estás seguro de eliminar TODAS las mascotas de este RUT?')) {
+                fetch('/eliminar-por-rut/' + rut, { 
+                    method: 'DELETE' 
+                })
+                .then(response => {
+                    if (!response.ok) throw new Error('Error en la respuesta del servidor');
+                    return response.text();
+                })
+                .then(mensaje => {
+                    alert(mensaje);
+                    window.location.href = '/'; // Redirige al inicio
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('No se pudo eliminar: ' + error.message);
+                });
+            }
+        }
+    </script>
 </body>
 </html>

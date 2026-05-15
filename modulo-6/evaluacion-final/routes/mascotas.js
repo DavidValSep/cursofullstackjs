@@ -17,4 +17,6 @@ router.post('/agregar-mascota', mascotasController.postAgregarMascota);
 
 router.delete('/eliminar/:nombre', mascotasController.deleteMascotaByName);
 
+router.delete('/eliminar-por-rut/:rut', mascotasController.deleteMascotasByRut);
+
 module.exports = router;

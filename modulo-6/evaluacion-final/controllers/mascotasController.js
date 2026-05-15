@@ -144,6 +144,32 @@ const deleteMascotaByName = async (req, res) => {
         res.status(500).send("Error interno al intentar eliminar.");
     }
 };
+const deleteMascotasByRut = async (req, res) => {
+    try {
+        const { rut } = req.params;
+        const duenos = await readMascotas();
+        let rutEncontrado = false;
+
+        const nuevosDatos = duenos.map(dueno => {
+            if (dueno.rut_dueno === rut) {
+                dueno.mascotas = []; // Eliminamos todas las mascotas de este RUT
+                rutEncontrado = true;
+            }
+            return dueno;
+        });
+
+        if (rutEncontrado) {
+            // Guardamos los cambios en el archivo JSON
+            await fs.writeFile(dataPath, JSON.stringify(nuevosDatos, null, 2));
+            res.send(`Todas las mascotas asociadas al RUT ${rut} han sido eliminadas.`);
+        } else {
+            res.status(404).send(`No se encontró el RUT ${rut} en el registro.`);
+        }
+    } catch (err) {
+        console.error("Error al eliminar por RUT:", err);
+        res.status(500).send("Error interno al procesar la eliminación.");
+    }
+};
 
 module.exports = { getAllMascotas, 
-    getMascotaById, getMascotaByRut, getAgregarMascota, postAgregarMascota, deleteMascotaByName};
+    getMascotaById, getMascotaByRut, getAgregarMascota, postAgregarMascota, deleteMascotaByName, deleteMascotasByRut};

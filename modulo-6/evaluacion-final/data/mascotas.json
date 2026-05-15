@@ -2,18 +2,7 @@
   {
     "rut_dueno": "12.345.678-1",
     "nombre_dueno": "Roberto Valencia",
-    "mascotas": [
-      {
-        "id": 1,
-        "nombre": "Thor",
-        "especie": "Perro"
-      },
-      {
-        "id": 2,
-        "nombre": "Sasha",
-        "especie": "Gato"
-      }
-    ]
+    "mascotas": []
   },
   {
     "rut_dueno": "15.672.110-k",
@@ -191,18 +180,7 @@
   {
     "rut_dueno": "12.889.001-2",
     "nombre_dueno": "Esteban Paredes",
-    "mascotas": [
-      {
-        "id": 23,
-        "nombre": "Goleador",
-        "especie": "Perro"
-      },
-      {
-        "id": 24,
-        "nombre": "Capitán",
-        "especie": "Perro"
-      }
-    ]
+    "mascotas": []
   },
   {
     "rut_dueno": "21.332.445-k",
