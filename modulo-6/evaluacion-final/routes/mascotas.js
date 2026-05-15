@@ -8,4 +8,11 @@ router.get('/', mascotasController.getAllMascotas);
 // GET /mascota/:id - Mascota específica por ID
 router.get('/mascota/:id', mascotasController.getMascotaById);
 
+// GET /rut/:rut - Mascota específica por RUT
+router.get('/rut/:rut', mascotasController.getMascotaByRut);
+
+router.get('/agregar-mascota', mascotasController.getAgregarMascota);
+
+router.post('/agregar-mascota', mascotasController.postAgregarMascota);
+
 module.exports = router;

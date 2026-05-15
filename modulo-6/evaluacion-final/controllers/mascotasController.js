@@ -56,5 +56,59 @@ const getMascotaById = async (req, res) => {
     }
 };
 
+const getMascotaByRut = async (req, res) => {
+    try {
+        const { rut } = req.params;
+        const duenos = await readMascotas();
+        
+        // Buscamos al dueño por RUT
+        const duenoEncontrado = duenos.find(d => d.rut_dueno === rut);
+
+        if (duenoEncontrado) {
+            // IMPORTANTE: El nombre de la variable aquí es 'dueno'
+            res.render('detalle-dueno', { dueno: duenoEncontrado });
+        } else {
+            res.status(404).render('no-encontrado', { mensaje: "Dueño no encontrado" });
+        }
+    } catch (err) {
+        res.status(500).send("Error interno");
+    }
+};
+
+const getAgregarMascota = async (req, res) => {
+    res.render('agregar-mascota', { title: "Agregar Mascota" });
+};
+
+const postAgregarMascota = async (req, res) => {
+    try {
+        const { nombre, especie, id, rut_dueno } = req.body;
+        const duenos = await readMascotas();
+
+        // Buscamos al dueño por RUT
+        let dueno = duenos.find(d => d.rut_dueno === rut_dueno);
+
+        if (!dueno) {
+            // Si el dueño no existe, lo creamos
+            dueno = {
+                nombre_dueno: "Desconocido", // Puedes pedir el nombre del dueño también si quieres
+                rut_dueno,
+                mascotas: []
+            };
+            duenos.push(dueno);
+        }
+
+        // Agregamos la nueva mascota al dueño encontrado o creado
+        dueno.mascotas.push({ nombre, especie, id });
+
+        // Guardamos los cambios en el archivo JSON
+        await fs.writeFile(dataPath, JSON.stringify(duenos, null, 2), 'utf-8');
+
+        res.redirect('/mascota/' + id);
+    } catch (err) {
+        console.error("Error al agregar mascota:", err);
+        res.status(500).send("Error en el servidor");
+    }
+}
+
 module.exports = { getAllMascotas, 
-    getMascotaById };
+    getMascotaById, getMascotaByRut, getAgregarMascota, postAgregarMascota};

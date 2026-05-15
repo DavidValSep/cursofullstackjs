@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/main.css">
+    <title>Expediente de Mascotas</title>
+</head>
+<body>
+    <div class="owner-card" style="max-width: 600px; margin: 40px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
+        
+        <h2>Expediente del Propietario</h2>
+        <hr>
+        <p><strong>Nombre del Dueño:</strong> {{dueno.nombre_dueno}}</p>
+        <p><strong>RUT:</strong> {{dueno.rut_dueno}}</p>
+
+        <div class="pet-list-container" style="margin-top: 20px;">
+            <h3>Mascotas Registradas:</h3>
+            <ul style="list-style: none; padding: 0;">
+                {{#each dueno.mascotas}}
+                <li style="background: #f4f4f4; margin-bottom: 10px; padding: 10px; border-radius: 5px;">
+                    <strong>Nombre:</strong> {{this.nombre}} <br>
+                    <strong>Especie:</strong> {{this.especie}} <br>
+                    <strong>ID:</strong> {{this.id}}
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+
+        <div class="actions" style="margin-top: 20px;">
+            <a href="/" class="btn-secondary">Volver al listado principal</a>
+        </div>
+    </div>
+</body>
+</html>
