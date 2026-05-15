@@ -18,6 +18,7 @@
                         <strong>🐾 {{this.nombre}}</strong> ({{this.especie}})
                         <br>
                         <a href="/mascota/{{this.id}}" class="btn btn-secondary">Ver Ficha</a>
+                        <button onclick="eliminarMascota('{{this.nombre}}')" class="btn btn-secondary">Eliminar 🗑️</button>
                     </li>
                     {{/each}}
                 </ul>
@@ -31,3 +32,15 @@
         {{/each}}
     </div>
 </div>
+<script>
+function eliminarMascota(nombre) {
+    if(confirm('¿Seguro que quieres eliminar a ' + nombre + '?')) {
+        fetch('/eliminar/' + nombre, { method: 'DELETE' })
+        .then(res => res.text())
+        .then(msg => {
+            alert(msg);
+            location.reload(); // Recarga para ver los cambios
+        });
+    }
+}
+</script>

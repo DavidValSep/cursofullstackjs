@@ -110,5 +110,40 @@ const postAgregarMascota = async (req, res) => {
     }
 }
 
+const deleteMascotaByName = async (req, res) => {
+    try {
+        const { nombre } = req.params;
+        const duenos = await readMascotas();
+        let mascotaEliminada = false;
+
+        // Mapeamos los dueños y filtramos sus mascotas
+        const nuevosDatos = duenos.map(dueno => {
+            const cantidadOriginal = dueno.mascotas.length;
+            
+            // Filtramos: dejamos todas las que NO tengan el nombre buscado
+            dueno.mascotas = dueno.mascotas.filter(m => 
+                m.nombre.toLowerCase() !== nombre.toLowerCase()
+            );
+
+            // Si el tamaño cambió, es porque encontramos y eliminamos al menos una
+            if (dueno.mascotas.length < cantidadOriginal) {
+                mascotaEliminada = true;
+            }
+            return dueno;
+        });
+
+        if (mascotaEliminada) {
+            // Guardamos los cambios en el JSON
+            await fs.writeFile(dataPath, JSON.stringify(nuevosDatos, null, 2));
+            res.send(`La mascota "${nombre}" ha sido eliminada exitosamente.`);
+        } else {
+            res.status(404).send(`No se encontró ninguna mascota con el nombre "${nombre}".`);
+        }
+    } catch (err) {
+        console.error("Error al eliminar:", err);
+        res.status(500).send("Error interno al intentar eliminar.");
+    }
+};
+
 module.exports = { getAllMascotas, 
-    getMascotaById, getMascotaByRut, getAgregarMascota, postAgregarMascota};
+    getMascotaById, getMascotaByRut, getAgregarMascota, postAgregarMascota, deleteMascotaByName};

@@ -2,10 +2,22 @@
     <h2>Agregar Mascota</h2>
     <hr>
     <form action="/agregar-mascota" method="POST">
-    <p><strong>Nombre:</strong> <input type="text" name="nombre" id="nombre"></p>
-    <p><strong>Especie:</strong> <input type="text" name="especie" id="especie"></p>
-    <p><strong>ID de Registro:</strong> <input type="text" name="id" id="id"></p>
-    <p><strong>RUT del Dueño:</strong> <input type="text" name="rut_dueno" id="rut_dueno"></p>
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="especie">Especie:</label>
+        <input type="text" name="especie" id="especie" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="id">ID de Registro:</label>
+        <input type="text" name="id" id="id" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="rut_dueno">RUT del Dueño:</label>
+        <input type="text" name="rut_dueno" id="rut_dueno" class="form-control">
+    </div>
     <div class="actions">
         <button type="submit" class="btn-primary">Guardar Mascota</button>
         <a href="/" class="btn-secondary">Volver al listado</a>

@@ -66,11 +66,6 @@
         "id": 8,
         "nombre": "Boby",
         "especie": "Perro"
-      },
-      {
-        "id": 9,
-        "nombre": "Toby",
-        "especie": "Perro"
       }
     ]
   },

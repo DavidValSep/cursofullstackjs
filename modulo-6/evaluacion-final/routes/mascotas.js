@@ -15,4 +15,6 @@ router.get('/agregar-mascota', mascotasController.getAgregarMascota);
 
 router.post('/agregar-mascota', mascotasController.postAgregarMascota);
 
+router.delete('/eliminar/:nombre', mascotasController.deleteMascotaByName);
+
 module.exports = router;
