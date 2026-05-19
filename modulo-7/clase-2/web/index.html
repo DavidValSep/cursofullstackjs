@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App que se sirve desde otro server.</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Gestión de Usuarios (CRUD)</h1>
+<div class="grid-layout">
+      <div class="card col-izquierda">
+        <h2>1. Listado de Usuarios</h2>
+        <button onclick="obtenerUsuarios()">
+          Actualizar / Consultar Lista
+        </button>
+        <div id="lista-usuarios">
+            <ul id="lista-clientes"></ul>
+        </div>
+      </div>
+
+      <div class="card col-izquierda">
+        <h2>Crear Nuevo Usuario</h2>
+        <form id="form-crear" onsubmit="crearUsuario(event)">
+          <div class="form-group">
+            <label for="crear-user">Nombre de Usuario:</label>
+            <input
+              type="text"
+              id="crear-user"
+              placeholder="Nombre de Usuario"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="crear-correo">Correo Electrónico:</label>
+            <input type="email" id="crear-correo" required />
+          </div>
+          <button type="submit">Agregar Usuario</button>
+        </form>
+      </div>
+
+      <div class="card form-modificar-card">
+        <h2>Modificar Nombre de Usuario</h2>
+        <form id="form-modificar" onsubmit="modificarUsuario(event)">
+          <input type="hidden" id="modificar-id" />
+          <div class="form-group">
+            <label for="modificar-user">Nombre de Usuario a modificar:</label>
+            <input
+              type="text"
+              id="modificar-user"
+              placeholder="Nombre de Usuario"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="modificar-correo">Nuevo Correo Electrónico:</label>
+            <input type="email" id="modificar-correo" required />
+          </div>
+          <button type="submit">Actualizar Nombre</button>
+        </form>
+      </div>
+      </div>
+    </div>
+  </body>
+</html>
