@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Clientes - Panel de Control</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+
+    <h1>Gestión de Clientes</h1>
+
+    <!-- Contenedor de Alertas Globales del Servidor -->
+    <div id="panel-respuesta" class="alert oculto"></div>
+
+    <div class="dashboard">
+        
+        <!-- SECCIÓN FORMULARIOS -->
+        <div class="formularios-container">
+            
+            <!-- 1. Crear Cliente (POST) -->
+            <section class="card">
+                <h2>Crear Cliente</h2>
+                <form id="form-crear">
+                    <label for="crear-rut">RUT:</label>
+                    <input type="text" id="crear-rut" placeholder="12345678-9" required>
+                    
+                    <label for="crear-nombre">Nombre:</label>
+                    <input type="text" id="crear-nombre" placeholder="Juan Pérez" required>
+                    
+                    <label for="crear-edad">Edad:</label>
+                    <input type="number" id="crear-edad" min="0" max="120" required>
+                    
+                    <button type="submit" class="btn btn-crear">Registrar Cliente</button>
+                </form>
+            </section>
+
+            <!-- 2. Modificar Cliente (PUT) -->
+            <section class="card">
+                <h2>Modificar Cliente (Solo Nombre)</h2>
+                <form id="form-modificar">
+                    <label for="modificar-rut">RUT del Cliente a modificar:</label>
+                    <input type="text" id="modificar-rut" placeholder="12345678-9" required>
+                    
+                    <label for="modificar-nombre">Nuevo Nombre:</label>
+                    <input type="text" id="modificar-nombre" placeholder="Nuevo Nombre" required>
+                    
+                    <button type="submit" class="btn btn-modificar">Actualizar Nombre</button>
+                </form>
+            </section>
+
+            <!-- 3. Consultar / Filtrar (GET) -->
+            <section class="card">
+                <h2>Consultar / Filtrar</h2>
+                <form id="form-consultar">
+                    <label for="buscar-criterio">Buscar por:</label>
+                    <select id="buscar-criterio">
+                        <option value="todos">Todos los clientes</option>
+                        <option value="rut">RUT (Exacto)</option>
+                        <option value="nombre">Nombre (Prefijo / Completo)</option>
+                        <option value="edad">Edad (Valor exacto)</option>
+                    </select>
+
+                    <!-- El input ahora es fijo, siempre presente en el DOM -->
+                    <label for="buscar-valor">Valor a buscar:</label>
+                    <input type="text" id="buscar-valor" placeholder="No se requiere filtro para 'Todos'" disabled>
+
+                    <button type="submit" class="btn btn-consultar">Buscar</button>
+                </form>
+            </section>
+
+            <!-- 4. Eliminar Cliente (DELETE) -->
+            <section class="card card-peligro">
+                <h2>Eliminar Cliente</h2>
+                <form id="form-eliminar">
+                    <label for="eliminar-criterio">Eliminar por:</label>
+                    <select id="eliminar-criterio">
+                        <option value="rut">RUT</option>
+                        <option value="nombre">Nombre</option>
+                        <option value="edad">Edad</option>
+                    </select>
+
+                    <label for="eliminar-valor">Valor (Evita duplicados):</label>
+                    <input type="text" id="eliminar-valor" placeholder="Criterio de eliminación..." required>
+
+                    <button type="submit" class="btn btn-eliminar">Eliminar Registro</button>
+                </form>
+            </section>
+
+        </div>
+
+        <!-- SECCIÓN RESULTADOS -->
+        <div class="resultados-container">
+            <div class="card">
+                <h2>Resultados de la Consulta</h2>
+                <div class="table-responsive">
+                    <table id="tabla-clientes">
+                        <thead>
+                            <tr>
+                                <th>RUT</th>
+                                <th>Nombre</th>
+                                <th>Edad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="3" class="text-center">Use el panel de consulta para cargar datos.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
