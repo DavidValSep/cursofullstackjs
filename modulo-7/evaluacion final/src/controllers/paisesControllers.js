@@ -22,8 +22,11 @@ export const getPaisesPib = async (req, res) => {
 
 export const createPais = async (req, res) => {
   const { nombre, continente, poblacion, pib_2019, pib_2020 } = req.body;
-  if (!nombre) {
-    return res.status(400).json({ mensaje: "El nombre del país es obligatorio" });
+if (!nombre) {
+    // Creamos el error, le asignamos el código 444 y se lo enviamos al manejador global
+    const error = new Error("El nombre es obligatorio");
+    error.status = 444;
+    return next(error);
   }
   try {
     const queryPais = "INSERT INTO paises (nombre, continente, poblacion) VALUES ($1, $2, $3)";
@@ -45,7 +48,9 @@ export const deletePais = async (req, res) => {
   const { nombre } = req.params;
 
   if (!nombre) {
-    return res.status(400).json({ mensaje: "El nombre del país es obligatorio" });
+    const error = new Error("El nombre del país es obligatorio");
+    error.status = 444;
+    return next(error);
   }
 
   try {
