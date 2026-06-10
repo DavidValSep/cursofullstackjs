@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portafolio — David Valencia Sepúlveda</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital;wght@0,300;0,400;1,300;,wght&display=swap" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+<script src="app.js" defer></script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">DavidValSep</div>
+  <ul class="nav-links">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#sobre-mi">Sobre mí</a></li>
+    <li><a href="#proyectos">Proyectos</a></li>
+    <li><a href="#habilidades">Habilidades</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="inicio">
+  <div class="hero-text">
+    <div class="hero-label">Disponible para trabajar</div>
+    <h1>Desarrollador<br><span>FullStack</span></h1>
+    <p class="hero-sub">HTML5, CSS, JS, PHP, MYSQL</p>
+    <div class="hero-cta">
+      <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
+      <a href="#contacto" class="btn btn-ghost">Contacto</a>
+    </div>
+  </div>
+
+  <div class="photo-box">
+    <div class="photo-icon">◻</div>
+    <span>FOTO</span>
+  </div>
+</section>
+
+<!-- SOBRE MÍ -->
+<section id="sobre-mi">
+  <div class="section-label">Sobre mí</div>
+  <div class="content reveal">
+    <p>Breve descripción de 3–4 líneas. Cuéntale a quien visita tu portafolio quién eres, cuál es tu foco tecnológico y cuáles son tus objetivos profesionales a corto y mediano plazo.</p>
+    <br>
+    <p>Puedes incluir intereses personales, valores que guían tu trabajo o el tipo de proyectos que te apasiona construir.</p>
+  </div>
+</section>
+
+<!-- PROYECTOS -->
+<section id="proyectos">
+  <div class="section-label">Proyectos (3 tarjetas)</div>
+  <div class="projects-grid">
+    <!-- Card 1 -->
+    <div class="project-card reveal">
+      <div class="project-preview">
+        <div class="project-preview-icon">⬡</div>
+      </div>
+      <div class="project-info">
+        <div class="project-name">Nombre del proyecto</div>
+        <div class="project-desc">Descripción breve del proyecto y las tecnologías utilizadas.</div>
+        <div class="project-tags">
+          <span class="project-tag">React</span>
+          <span class="project-tag">Node.js</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="project-card reveal" style="transition-delay:.1s">
+      <div class="project-preview">
+        <div class="project-preview-icon">⬡</div>
+      </div>
+      <div class="project-info">
+        <div class="project-name">Nombre del proyecto</div>
+        <div class="project-desc">Descripción breve del proyecto y las tecnologías utilizadas.</div>
+        <div class="project-tags">
+          <span class="project-tag">PostgreSQL</span>
+          <span class="project-tag">Express</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="project-card reveal" style="transition-delay:.2s">
+      <div class="project-preview">
+        <div class="project-preview-icon">⬡</div>
+      </div>
+      <div class="project-info">
+        <div class="project-name">Nombre del proyecto</div>
+        <div class="project-desc">Descripción breve del proyecto y las tecnologías utilizadas.</div>
+        <div class="project-tags">
+          <span class="project-tag">JavaScript</span>
+          <span class="project-tag">CSS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HABILIDADES -->
+<section id="habilidades">
+  <div class="section-label">Habilidades (tags)</div>
+  <div class="skills-cloud reveal">
+    <span class="skill-tag highlight">HTML</span>
+    <span class="skill-tag highlight">CSS</span>
+    <span class="skill-tag highlight">Bootstrap</span>
+    <span class="skill-tag highlight">JavaScript</span>
+    <span class="skill-tag">Node.js</span>
+    <span class="skill-tag">Express</span>
+    <span class="skill-tag">PostgreSQL</span>
+    <span class="skill-tag">React</span>
+    <span class="skill-tag">GitHub</span>
+    <span class="skill-tag">REST APIs</span>
+    <span class="skill-tag">Git</span>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="section-label">Contacto</div>
+  <div class="contact-grid reveal">
+    <div class="contact-links">
+      <a href="mailto:tu@email.com" class="contact-link">
+        <span>✉</span> Email — tu@email.com
+      </a>
+      <a href="tel:+56900000000" class="contact-link">
+        <span>☎</span> Teléfono — +56 9 0000 0000
+      </a>
+      <a href="#" class="contact-link">
+        <span>in</span> LinkedIn — /in/tu-perfil
+      </a>
+      <a href="#" class="contact-link">
+        <span>⌥</span> GitHub — /tu-usuario
+      </a>
+    </div>
+
+    <div class="qr-box">
+      <div class="qr-placeholder" id="qr"></div>
+      <span>QR / Íconos</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 Tu Nombre — Portafolio</span>
+  <a href="#inicio">↑ Volver arriba</a>
+</footer>
+
+</body>
+</html>
