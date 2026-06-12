@@ -229,7 +229,8 @@
   }
 
   .project-preview {
-    height: 180px;
+    top: 4px;
+    height: 220px;
     background: var(--surface);
     display: flex; align-items: center; justify-content: center;
     color: var(--muted);
@@ -248,6 +249,9 @@
       transparent, transparent 8px,
       rgba(255,255,255,.02) 8px, rgba(255,255,255,.02) 9px
     );
+  }
+  .project-preview img {
+    max-height: 220px;
   }
 
   .project-preview-icon { font-size: 2rem; opacity: .2; position: relative; }
@@ -340,7 +344,7 @@
     background: var(--card);
   }
 
-  .qr-placeholder {
+.qr-placeholder {
     display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px;
   }
   .qr-cell {
